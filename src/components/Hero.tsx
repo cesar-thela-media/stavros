@@ -15,12 +15,12 @@ export default function Hero() {
       <div className="relative z-20 mx-auto max-w-7xl px-4 py-24 sm:py-32 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-serif">
-            Luxury Real Estate in
-            <span className="block text-gold-400">Central Texas</span>
+            Luxury & Custom Homes
+            <span className="block text-gold-400">with 26+ Years of Excellence</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-200">
-            Discover exceptional properties and personalized service with Stavros Realty. 
-            Your dream home awaits in the heart of Texas.
+            Experience unmatched expertise with Spero Stavros and the Stavros Realty Team. 
+            From first-time buyers to multimillion-dollar estates, we turn dreams into reality.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link href="/properties" className="btn-primary">

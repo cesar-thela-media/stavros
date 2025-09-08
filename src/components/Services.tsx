@@ -1,7 +1,16 @@
 const services = [
   {
+    title: "Custom & New Construction",
+    description: "Expert guidance through custom home building and new construction with our extensive builder network, saving you thousands of dollars.",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    )
+  },
+  {
     title: "Luxury Home Sales",
-    description: "Expert guidance for buying and selling luxury properties with personalized attention to every detail.",
+    description: "Specializing in luxury properties and multimillion-dollar estates with personalized attention from starter homes to custom builds.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -9,29 +18,20 @@ const services = [
     )
   },
   {
-    title: "Investment Properties",
-    description: "Strategic investment opportunities and portfolio management for discerning real estate investors.",
+    title: "Mortgage & Finance Insights",
+    description: "Unique advantage with VP-level mortgage company experience providing invaluable financing guidance and solutions.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     )
   },
   {
-    title: "Market Analysis",
-    description: "Comprehensive market insights and property valuations backed by local expertise and data.",
+    title: "Global Network Access",
+    description: "Backed by 170,000+ agents worldwide with cutting-edge technology and comprehensive market coverage.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    )
-  },
-  {
-    title: "Concierge Services",
-    description: "Full-service support including staging, photography, legal assistance, and closing coordination.",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     )
   }
@@ -43,10 +43,10 @@ export default function Services() {
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
-            Our Services
+            Spero's Expertise
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-600">
-            Comprehensive real estate services tailored to meet the unique needs of luxury property clients.
+            From first-time buyers to luxury estates and custom home construction - comprehensive services backed by 26+ years of award-winning experience.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function Services() {
 
         <div className="mt-12 text-center">
           <button className="btn-primary">
-            Learn More About Our Services
+            Call Spero Today for Your Free Consultation
           </button>
         </div>
       </div>
