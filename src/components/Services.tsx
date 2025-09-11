@@ -63,9 +63,28 @@ export default function Services() {
         </div>
 
         <div className="mt-12 text-center">
-          <button className="btn-primary">
-            Call Spero Today for Your Free Consultation
-          </button>
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-primary-200 max-w-2xl mx-auto">
+            <h3 className="text-lg font-semibold text-primary-900 mb-3">
+              Powered by Keller Williams Technology
+            </h3>
+            <p className="text-primary-600 mb-4">
+              Access cutting-edge real estate tools, comprehensive MLS search, market analytics, and more through our KW platform.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a 
+                href="tel:+1234567890" 
+                className="btn-primary"
+              >
+                Call Spero for Free Consultation
+              </a>
+              <a 
+                href="#kw-tools"
+                className="btn-secondary"
+              >
+                Explore Our Tools
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -35,12 +35,12 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-400">Services</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-400">KW Tools</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/services/buying" className="text-primary-300 hover:text-white transition-colors">Buying</Link></li>
-              <li><Link href="/services/selling" className="text-primary-300 hover:text-white transition-colors">Selling</Link></li>
-              <li><Link href="/services/investment" className="text-primary-300 hover:text-white transition-colors">Investment</Link></li>
-              <li><Link href="/services/luxury" className="text-primary-300 hover:text-white transition-colors">Luxury Properties</Link></li>
+              <li><a href="https://stavrosrealtyteam.kw.com/search" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Property Search</a></li>
+              <li><a href="https://stavrosrealtyteam.kw.com/home-valuation" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Home Valuation</a></li>
+              <li><a href="https://stavrosrealtyteam.kw.com/mortgage-calculator" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Mortgage Calculator</a></li>
+              <li><a href="https://stavrosrealtyteam.kw.com/market-reports" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Market Reports</a></li>
             </ul>
           </div>
 
@@ -55,9 +55,22 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 border-t border-primary-800 pt-8">
-          <p className="text-center text-primary-400 text-sm">
-            © 2024 Stavros Realty. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-primary-400 text-sm">
+              © 2024 Stavros Realty. All rights reserved.
+            </p>
+            <div className="mt-4 md:mt-0 flex items-center text-primary-400 text-sm">
+              <span>Powered by</span>
+              <a 
+                href="https://www.kw.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="ml-2 text-gold-400 hover:text-gold-300 font-semibold"
+              >
+                Keller Williams
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

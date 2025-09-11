@@ -11,7 +11,10 @@ export default function About() {
               <strong>Experience • Integrity • Excellence</strong> - Spero brings over 26 years of award-winning experience in real estate, representing luxury, custom home buyers, sellers, and builders at any price point.
             </p>
             <p className="mt-4 text-lg text-primary-600">
-              As Managing Director of the Custom Home Network and a top-producing agent with Austin Portfolio Real Estate, Spero combines unmatched market knowledge with his unique background as VP of Business Operations and partial owner of a mortgage company, providing invaluable insights that save clients time, stress, and money.
+              As a top-producing Keller Williams agent, Spero combines unmatched market knowledge with his unique background as VP of Business Operations and partial owner of a mortgage company, providing invaluable insights that save clients time, stress, and money.
+            </p>
+            <p className="mt-4 text-lg text-primary-600">
+              Backed by Keller Williams' cutting-edge technology, comprehensive training, and global network of 170,000+ agents, Spero delivers world-class service with local expertise in Central Texas markets.
             </p>
             
             <div className="mt-8 grid grid-cols-2 gap-4">
@@ -33,10 +36,21 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-8">
-              <button className="btn-primary">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a 
+                href="/contact" 
+                className="btn-primary"
+              >
                 Schedule Your Consultation
-              </button>
+              </a>
+              <a 
+                href="https://stavrosrealtyteam.kw.com/agent" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                View Full Profile
+              </a>
             </div>
           </div>
 
