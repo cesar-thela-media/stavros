@@ -68,12 +68,12 @@ export default function Footer() {
             <div className="mt-4 md:mt-0 flex items-center text-primary-400 text-sm">
               <span>Powered by</span>
               <a 
-                href="https://www.kw.com" 
+                href="https://thelamedia.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="ml-2 text-gold-400 hover:text-gold-300 font-semibold"
               >
-                Keller Williams
+                TMG
               </a>
             </div>
           </div>
