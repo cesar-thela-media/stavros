@@ -1,0 +1,71 @@
+# Stavros Realty Website - Cursor Rules
+
+## Project Overview
+This is a Next.js 14 TypeScript real estate website for Spero Stavros with Keller Williams Realty, featuring luxury property listings and real estate tools.
+
+## Architecture & Technology Stack
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Fonts**: Inter (body), Playfair Display (headings)
+- **Images**: Next.js Image component for optimization
+
+## Code Standards
+- Use TypeScript for all components and pages
+- Follow Next.js App Router conventions
+- Use Tailwind CSS for all styling
+- Implement proper TypeScript interfaces for props
+- Use semantic HTML elements
+- Ensure responsive design (mobile-first approach)
+
+## Component Structure
+- Place reusable components in `/src/components/`
+- Use proper TypeScript interfaces for component props
+- Implement proper error handling and loading states
+- Use Next.js Image component for all images
+- Follow accessibility best practices
+
+## Listings System
+- **Route Structure**: `/listings` for index, `/listings/[slug]` for individual properties
+- **Property Data**: Currently hardcoded in page components (future: database/CMS)
+- **Components**: 
+  - `PropertyHero`: Main property header with key stats
+  - `PropertyGallery`: Image gallery with thumbnail navigation
+  - `PropertyDetails`: Detailed property information and amenities
+  - `ContactForm`: Lead capture form for property inquiries
+- **Image Storage**: Property images stored in `/public/listings/[property-folder]/`
+- **SEO**: Dynamic metadata generation for each property listing
+
+## File Naming Conventions
+- Use kebab-case for property slugs (e.g., `112-winchester`)
+- Store property images in organized folders under `/public/listings/`
+- Component files use PascalCase (e.g., `PropertyHero.tsx`)
+
+## Development Guidelines
+- Never modify `.env`, `eas.json`, or `app.config.js` files
+- Always ask for permission before making additional changes beyond the request
+- Use absolute paths when possible for tool calls
+- Implement proper loading and error states
+- Ensure all forms have proper validation and user feedback
+- Follow responsive design principles
+
+## Contact Information Standards
+- **Phone Number**: Always use `(512) 661-9404` for display and `+15126619404` for tel: links
+- **Email**: Always use `spero@stavrosrealty.com`
+- **Consistency Rule**: All contact information must match site-wide standards across all components
+- **Components to Check**: Header, Footer, Contact forms, Call-to-action buttons, and any contact displays
+
+## Property Listing Guidelines
+- Each property should have a unique slug identifier
+- Property data structure should include: address, city, state, zipCode, builder, status, completion date, square footage, bedrooms, bathrooms, features, garage info, description, amenities, and location details
+- Images should be optimized and properly sized
+- Contact forms should be pre-populated with property-specific information
+- Implement proper 404 handling for non-existent listings
+
+## Future Enhancements
+- Integration with MLS or property management systems
+- Dynamic property data from CMS or database
+- Advanced search and filtering capabilities
+- Virtual tour integration
+- Mortgage calculator integration
+- Automated lead management system
