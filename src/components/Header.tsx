@@ -12,7 +12,7 @@ export default function Header() {
     { name: 'Search Properties', href: 'https://stavrosrealtyteam.kw.com/search', external: true },
     { name: 'About', href: 'https://stavrosrealtyteam.kw.com/agent', external: true },
     { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (
@@ -56,7 +56,7 @@ export default function Header() {
           </div>
           <div className="ml-6 flex items-center space-x-4">
             <Link
-              href="#contact"
+              href="/contact"
               className="btn-primary hidden lg:inline-flex"
             >
               Get Started
@@ -115,7 +115,7 @@ export default function Header() {
                 )
               ))}
               <Link
-                href="#contact"
+                href="/contact"
                 className="block rounded-md px-3 py-2 text-base font-medium text-gold-700 hover:bg-gold-100 hover:text-gold-800"
                 onClick={() => setIsMenuOpen(false)}
               >

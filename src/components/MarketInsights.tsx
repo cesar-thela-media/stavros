@@ -33,7 +33,7 @@ const neighborhoods = [
   {
     name: "Westlake",
     avgPrice: "$1.68M",
-    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Downtown Austin",
