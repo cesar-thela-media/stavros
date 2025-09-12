@@ -1,13 +1,17 @@
+import Link from 'next/link'
+
 const properties = [
   {
     id: 1,
-    title: "Modern Luxury Estate",
-    location: "West Lake Hills, Austin",
-    price: "$2,850,000",
-    beds: 5,
-    baths: 4.5,
-    sqft: "4,200",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+    title: "112 Winchester",
+    location: "Horseshoe Bay, TX",
+    price: "$925,000",
+    beds: 4,
+    baths: 3,
+    sqft: "2,726",
+    image: "/listings/winchester/Inspiration Pic - 112 Winchester HSB.png",
+    link: "/listings/112-winchester",
+    status: "Under Construction"
   },
   {
     id: 2,
@@ -45,38 +49,63 @@ export default function FeaturedProperties() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {properties.map((property) => (
-            <div key={property.id} className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="aspect-w-16 aspect-h-12 overflow-hidden">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-primary-900">{property.title}</h3>
-                  <span className="text-2xl font-bold text-gold-600">{property.price}</span>
+          {properties.map((property) => {
+            const PropertyCard = (
+              <div className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-12 overflow-hidden relative">
+                  <img
+                    src={property.image}
+                    alt={property.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {property.status && (
+                    <div className="absolute top-4 left-4">
+                      <span className="inline-block bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-semibold">
+                        {property.status}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <p className="text-primary-600 mb-4">{property.location}</p>
-                <div className="flex items-center justify-between text-sm text-primary-500">
-                  <span>{property.beds} beds</span>
-                  <span>{property.baths} baths</span>
-                  <span>{property.sqft} sq ft</span>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-primary-900">{property.title}</h3>
+                    <span className="text-2xl font-bold text-gold-600">{property.price}</span>
+                  </div>
+                  <p className="text-primary-600 mb-4">{property.location}</p>
+                  <div className="flex items-center justify-between text-sm text-primary-500">
+                    <span>{property.beds} beds</span>
+                    <span>{property.baths} baths</span>
+                    <span>{property.sqft} sq ft</span>
+                  </div>
+                  {property.link ? (
+                    <Link href={property.link} className="mt-4 w-full btn-secondary block text-center">
+                      View Details
+                    </Link>
+                  ) : (
+                    <button className="mt-4 w-full btn-secondary">
+                      View Details
+                    </button>
+                  )}
                 </div>
-                <button className="mt-4 w-full btn-secondary">
-                  View Details
-                </button>
               </div>
-            </div>
-          ))}
+            )
+
+            return property.link ? (
+              <Link key={property.id} href={property.link} className="block">
+                {PropertyCard}
+              </Link>
+            ) : (
+              <div key={property.id}>
+                {PropertyCard}
+              </div>
+            )
+          })}
         </div>
 
         <div className="mt-12 text-center">
-          <button className="btn-primary">
+          <Link href="/listings" className="btn-primary">
             View All Properties
-          </button>
+          </Link>
         </div>
       </div>
     </section>
