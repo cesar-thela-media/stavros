@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,8 +20,15 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between border-b border-primary-200 py-6 lg:border-none">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-serif font-bold text-primary-900">
-              Stavros Realty
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/assets/SRT Logo Dark.png"
+                alt="Stavros Realty"
+                width={240}
+                height={80}
+                className="h-20 w-auto"
+                priority
+              />
             </Link>
           </div>
           <div className="ml-10 space-x-4 hidden lg:block">
