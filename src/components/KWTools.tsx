@@ -32,50 +32,50 @@ const kwTools = [
     ),
     color: "bg-gold-100 text-gold-700"
   },
-  {
-    title: "Market Reports",
-    description: "Access detailed market analysis and neighborhood statistics",
-    url: "https://stavrosrealtyteam.kw.com/market-reports",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    color: "bg-cream-300 text-navy-700"
-  },
-  {
-    title: "Saved Properties",
-    description: "View and manage your favorite properties and saved searches",
-    url: "https://stavrosrealtyteam.kw.com/saved",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    color: "bg-gold-200 text-gold-800"
-  },
-  {
-    title: "Schedule Showing",
-    description: "Book property tours and schedule appointments with our team",
-    url: "https://stavrosrealtyteam.kw.com/schedule",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    ),
-    color: "bg-navy-200 text-navy-700"
-  },
-  {
-    title: "Selling Tools",
-    description: "Access resources for selling your home including pricing analysis",
-    url: "https://stavrosrealtyteam.kw.com/selling-tools",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    color: "bg-forest-200 text-forest-700"
-  },
+  // {
+  //   title: "Market Reports",
+  //   description: "Access detailed market analysis and neighborhood statistics",
+  //   url: "https://stavrosrealtyteam.kw.com/market-reports",
+  //   icon: (
+  //     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+  //     </svg>
+  //   ),
+  //   color: "bg-cream-300 text-navy-700"
+  // },
+  // {
+  //   title: "Saved Properties",
+  //   description: "View and manage your favorite properties and saved searches",
+  //   url: "https://stavrosrealtyteam.kw.com/saved",
+  //   icon: (
+  //     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+  //     </svg>
+  //   ),
+  //   color: "bg-gold-200 text-gold-800"
+  // },
+  // {
+  //   title: "Schedule Showing",
+  //   description: "Book property tours and schedule appointments with our team",
+  //   url: "https://stavrosrealtyteam.kw.com/schedule",
+  //   icon: (
+  //     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  //     </svg>
+  //   ),
+  //   color: "bg-navy-200 text-navy-700"
+  // },
+  // {
+  //   title: "Selling Tools",
+  //   description: "Access resources for selling your home including pricing analysis",
+  //   url: "https://stavrosrealtyteam.kw.com/selling-tools",
+  //   icon: (
+  //     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  //     </svg>
+  //   ),
+  //   color: "bg-forest-200 text-forest-700"
+  // },
   {
     title: "Agent Profile",
     description: "Learn more about Spero Stavros and the Stavros Realty Team",
