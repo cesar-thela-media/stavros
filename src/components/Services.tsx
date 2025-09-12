@@ -72,7 +72,7 @@ export default function Services() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
-                href="tel:+1234567890" 
+                href="tel:+15126619404" 
                 className="btn-primary"
               >
                 Call Spero for Free Consultation

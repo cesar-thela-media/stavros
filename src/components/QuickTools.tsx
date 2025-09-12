@@ -9,9 +9,9 @@ const quickTools = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
-    gradient: "from-green-500 to-emerald-600",
-    bgColor: "bg-green-50",
-    textColor: "text-green-700"
+    gradient: "from-navy-600 to-navy-700",
+    bgColor: "bg-cream-100",
+    textColor: "text-navy-700"
   },
   {
     title: "Calculate Your Mortgage",
@@ -23,21 +23,21 @@ const quickTools = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>
     ),
-    gradient: "from-blue-500 to-indigo-600",
-    bgColor: "bg-blue-50",
-    textColor: "text-blue-700"
+    gradient: "from-gold-600 to-gold-700",
+    bgColor: "bg-cream-100",
+    textColor: "text-gold-700"
   }
 ]
 
 export default function QuickTools() {
   return (
-    <section className="section-padding bg-gradient-to-br from-primary-50 to-gold-50">
+    <section className="section-padding bg-gradient-to-br from-cream-50 to-cream-200">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
+          <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl font-serif">
             Essential Real Estate Tools
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-600">
             Get instant access to the most important tools for your real estate journey
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function QuickTools() {
           {quickTools.map((tool, index) => (
             <div 
               key={index}
-              className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50`}
+              className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cream-300/50`}
             >
               <div className="flex items-start space-x-6">
                 <div className={`${tool.textColor} flex-shrink-0`}>
@@ -56,7 +56,7 @@ export default function QuickTools() {
                   <h3 className={`text-2xl font-bold ${tool.textColor} mb-3`}>
                     {tool.title}
                   </h3>
-                  <p className="text-primary-700 mb-6 text-lg leading-relaxed">
+                  <p className="text-navy-700 mb-6 text-lg leading-relaxed">
                     {tool.description}
                   </p>
                   <a
@@ -82,40 +82,31 @@ export default function QuickTools() {
         </div>
 
         {/* Additional CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-primary-200 max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="text-left">
-                <h3 className="text-2xl font-bold text-primary-900 mb-4">
-                  Need Expert Guidance?
-                </h3>
-                <p className="text-primary-600 mb-6">
-                  While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. Let Spero Stavros guide you through your real estate journey with 26+ years of expertise.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="tel:+1234567890" 
-                    className="btn-primary flex items-center justify-center space-x-2"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span>Call Now</span>
-                  </a>
-                  <a 
-                    href="/contact"
-                    className="btn-secondary"
-                  >
-                    Schedule Consultation
-                  </a>
-                </div>
-              </div>
-              <div className="hidden md:block">
-                <img
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Spero Stavros - Real Estate Expert"
-                  className="rounded-xl shadow-md w-full h-64 object-cover"
-                />
+        <div className="mt-16">
+          <div className="bg-gradient-to-r from-navy-50 to-cream-50 rounded-2xl p-12 shadow-xl border border-cream-300 mx-auto">
+            <div className="text-center max-w-4xl mx-auto">
+              <h3 className="text-3xl font-bold text-navy-900 mb-6">
+                Need Expert Guidance?
+              </h3>
+              <p className="text-navy-700 mb-8 text-lg leading-relaxed">
+                While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. Let Spero Stavros guide you through your real estate journey with 26+ years of expertise.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <a 
+                  href="tel:+15126619404" 
+                  className="btn-luxury flex items-center justify-center space-x-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>Call Now</span>
+                </a>
+                <a 
+                  href="#contact"
+                  className="btn-secondary"
+                >
+                  Schedule Consultation
+                </a>
               </div>
             </div>
           </div>

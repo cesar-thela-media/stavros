@@ -31,24 +31,44 @@ const marketStats = [
 
 const neighborhoods = [
   {
-    name: "West Lake Hills",
-    avgPrice: "$1.2M",
-    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    name: "Westlake",
+    avgPrice: "$1.68M",
+    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
   },
   {
-    name: "Tarrytown",
-    avgPrice: "$950K",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    name: "Downtown Austin",
+    avgPrice: "$1.25M",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Bee Cave",
+    avgPrice: "$945K",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Southwest Austin",
+    avgPrice: "$895K",
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Allandale",
+    avgPrice: "$815K",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Avery Ranch",
+    avgPrice: "$598K",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    name: "Anderson Mill",
+    avgPrice: "$575K",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
   },
   {
     name: "Cedar Park",
     avgPrice: "$525K",
-    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    name: "Leander",
-    avgPrice: "$475K",
-    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
   }
 ]
 
@@ -65,7 +85,8 @@ export default function MarketInsights() {
           </p>
         </div>
 
-        {/* Market Statistics */}
+        {/* Market Statistics - Hidden but kept for future use */}
+        {false && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {marketStats.map((stat, index) => (
             <div 
@@ -97,6 +118,7 @@ export default function MarketInsights() {
             </div>
           ))}
         </div>
+        )}
 
         {/* Featured Neighborhoods */}
         <div className="mb-12">
@@ -105,11 +127,14 @@ export default function MarketInsights() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {neighborhoods.map((neighborhood, index) => (
-              <div 
+              <a
                 key={index}
-                className="group cursor-pointer"
+                href={`https://stavrosrealtyteam.kw.com/search?q=${neighborhood.name.toLowerCase().replace(/\s+/g, '+')}+tx`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group cursor-pointer block"
               >
-                <div className="relative overflow-hidden rounded-lg bg-primary-800">
+                <div className="relative overflow-hidden rounded-lg bg-primary-800 hover:shadow-2xl transition-all duration-300">
                   <img
                     src={neighborhood.image}
                     alt={neighborhood.name}
@@ -117,15 +142,21 @@ export default function MarketInsights() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-semibold text-lg mb-1">
+                    <h4 className="text-white font-semibold text-lg mb-1 group-hover:text-gold-300 transition-colors">
                       {neighborhood.name}
                     </h4>
-                    <p className="text-gold-400 font-medium">
+                    <p className="text-gold-400 font-medium group-hover:text-gold-300 transition-colors">
                       Avg: {neighborhood.avgPrice}
                     </p>
+                    <div className="mt-2 flex items-center text-white/70 text-sm group-hover:text-gold-300 transition-colors">
+                      <span>Search Properties</span>
+                      <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -152,7 +183,7 @@ export default function MarketInsights() {
                 <span>View Market Reports</span>
               </a>
               <a 
-                href="/contact"
+                href="#contact"
                 className="bg-white text-primary-900 px-8 py-4 rounded-lg font-semibold hover:bg-primary-100 transition-colors duration-200"
               >
                 Request Custom Analysis

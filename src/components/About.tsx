@@ -38,7 +38,7 @@ export default function About() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a 
-                href="/contact" 
+                href="#contact" 
                 className="btn-primary"
               >
                 Schedule Your Consultation

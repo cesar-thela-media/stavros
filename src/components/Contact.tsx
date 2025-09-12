@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section className="section-padding bg-primary-900">
+    <section id="contact" className="section-padding bg-primary-900">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-serif">
@@ -33,7 +33,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <p className="text-primary-300">(512) 555-0123</p>
+                  <p className="text-primary-300">(512) 661-9404</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -43,9 +43,17 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <p className="text-primary-300">info@stavrosrealty.com</p>
+                  <p className="text-primary-300">spero@stavrosrealty.com</p>
                 </div>
               </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-primary-700">
+              <p className="text-primary-400 text-sm">
+                Spero Stavros • REALTOR® • License #: 818290 - TX
+              </p>
+              <p className="text-primary-400 text-sm mt-1">
+                KW Austin SW • Managing Director - Custom Home Network
+              </p>
             </div>
           </div>
 

@@ -9,6 +9,7 @@ interface SearchFormData {
   maxPrice: string
   bedrooms: string
   bathrooms: string
+  searchType: string // 'sale', 'sold', 'rent'
 }
 
 export default function PropertySearch() {
@@ -18,7 +19,8 @@ export default function PropertySearch() {
     minPrice: '',
     maxPrice: '',
     bedrooms: '',
-    bathrooms: ''
+    bathrooms: '',
+    searchType: 'sale'
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -30,18 +32,50 @@ export default function PropertySearch() {
   }
 
   const handleSearch = () => {
-    // Build URL parameters for KW search
+    // Build URL parameters for KW search using their format
     const params = new URLSearchParams()
     
-    if (searchData.location) params.append('location', searchData.location)
-    if (searchData.propertyType && searchData.propertyType !== 'any') params.append('propertyType', searchData.propertyType)
-    if (searchData.minPrice && searchData.minPrice !== 'any') params.append('minPrice', searchData.minPrice)
-    if (searchData.maxPrice && searchData.maxPrice !== 'any') params.append('maxPrice', searchData.maxPrice)
-    if (searchData.bedrooms && searchData.bedrooms !== 'any') params.append('bedrooms', searchData.bedrooms)
-    if (searchData.bathrooms && searchData.bathrooms !== 'any') params.append('bathrooms', searchData.bathrooms)
+    // Handle price range (min,max format)
+    if (searchData.minPrice !== 'any' || searchData.maxPrice !== 'any') {
+      const minPrice = searchData.minPrice !== 'any' ? searchData.minPrice : ''
+      const maxPrice = searchData.maxPrice !== 'any' ? searchData.maxPrice : ''
+      if (minPrice || maxPrice) {
+        params.append('price', `${minPrice},${maxPrice}`)
+      }
+    }
     
-    // Redirect to KW search with parameters
-    const searchUrl = `https://stavrosrealtyteam.kw.com/search?${params.toString()}`
+    // Handle bedrooms (value,null format)
+    if (searchData.bedrooms && searchData.bedrooms !== 'any') {
+      params.append('bedrooms', `${searchData.bedrooms},null`)
+    }
+    
+    // Handle bathrooms (value,null format)  
+    if (searchData.bathrooms && searchData.bathrooms !== 'any') {
+      params.append('bathrooms', `${searchData.bathrooms},null`)
+    }
+    
+    // Handle property subtype (map our types to KW format)
+    if (searchData.propertyType && searchData.propertyType !== 'any') {
+      const propertyTypeMapping: { [key: string]: string } = {
+        'single-family': 'HOUSE',
+        'condo': 'APARTMENT',
+        'townhouse': 'TOWNHOUSE',
+        'land': 'LAND',
+        'luxury': 'HOUSE',
+        'new-construction': 'HOUSE'
+      }
+      const kwPropertyType = propertyTypeMapping[searchData.propertyType] || 'HOUSE'
+      params.append('property_subtype', kwPropertyType)
+    }
+    
+    // Handle location (if provided, could be used for viewport or other location params)
+    if (searchData.location) {
+      // For now, we'll pass it as a query parameter, but KW might use it differently
+      params.append('q', searchData.location)
+    }
+    
+    // Build URL with search type slug
+    const searchUrl = `https://stavrosrealtyteam.kw.com/search/${searchData.searchType}?${params.toString()}`
     window.open(searchUrl, '_blank')
   }
 
@@ -49,7 +83,21 @@ export default function PropertySearch() {
     <div className="bg-white rounded-lg shadow-xl p-6 border border-primary-200">
       <h3 className="text-xl font-semibold text-primary-900 mb-4 text-center">Find Your Dream Home</h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-primary-700 mb-2">Search Type</label>
+          <select 
+            name="searchType"
+            value={searchData.searchType}
+            onChange={handleInputChange}
+            className="w-full px-3 py-2 border border-primary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+          >
+            <option value="sale">For Sale</option>
+            <option value="sold">Recently Sold</option>
+            <option value="rent">For Rent</option>
+          </select>
+        </div>
+        
         <div>
           <label className="block text-sm font-medium text-primary-700 mb-2">Location</label>
           <input

@@ -10,15 +10,15 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Search Properties', href: 'https://stavrosrealtyteam.kw.com/search', external: true },
-    { name: 'About', href: '/about' },
+    { name: 'About', href: 'https://stavrosrealtyteam.kw.com/agent', external: true },
     { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Contact', href: '#contact' },
   ]
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-cream-50/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-cream-200">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex w-full items-center justify-between border-b border-primary-200 py-6 lg:border-none">
+        <div className="flex w-full items-center justify-between py-6">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -39,7 +39,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base font-medium text-primary-700 hover:text-gold-600 transition-colors duration-200"
+                   className="text-base font-medium text-navy-700 hover:text-gold-600 transition-colors duration-300"
                 >
                   {link.name}
                 </a>
@@ -47,7 +47,7 @@ export default function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-base font-medium text-primary-700 hover:text-gold-600 transition-colors duration-200"
+                   className="text-base font-medium text-navy-700 hover:text-gold-600 transition-colors duration-300"
                 >
                   {link.name}
                 </Link>
@@ -56,14 +56,14 @@ export default function Header() {
           </div>
           <div className="ml-6 flex items-center space-x-4">
             <Link
-              href="/contact"
+              href="#contact"
               className="btn-primary hidden lg:inline-flex"
             >
               Get Started
             </Link>
             <button
               type="button"
-              className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-primary-700 hover:bg-primary-100 hover:text-primary-900"
+              className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-navy-700 hover:bg-cream-200 hover:text-navy-900"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -98,7 +98,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-md px-3 py-2 text-base font-medium text-primary-700 hover:bg-primary-100 hover:text-primary-900"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-navy-700 hover:bg-cream-200 hover:text-navy-900"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -107,7 +107,7 @@ export default function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-primary-700 hover:bg-primary-100 hover:text-primary-900"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-navy-700 hover:bg-cream-200 hover:text-navy-900"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -115,8 +115,8 @@ export default function Header() {
                 )
               ))}
               <Link
-                href="/contact"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gold-600 hover:bg-gold-50"
+                href="#contact"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gold-700 hover:bg-gold-100 hover:text-gold-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started
