@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-primary-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-primary-400 text-sm">
-              © 2024 Stavros Realty Team. All rights reserved.
+              © 2025 Stavros Realty Team. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex items-center text-primary-400 text-sm">
               <span>Powered by</span>

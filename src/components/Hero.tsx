@@ -1,15 +1,37 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import PropertySearch from './PropertySearch'
 
 export default function Hero() {
+  const [heroImage, setHeroImage] = useState<string | null>(null)
+
+  useEffect(() => {
+    const heroImages = [
+      '/assets/hero2.png', 
+      '/assets/hero3.png',
+      '/assets/hero4.png',
+      '/assets/hero5.png'
+    ]
+    const randomImage = heroImages[Math.floor(Math.random() * heroImages.length)]
+    setHeroImage(randomImage)
+  }, [])
   return (
     <section className="relative bg-primary-50 overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-800/60 z-10"></div>
-        <img
-          className="w-full h-full object-cover"
-          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80"          alt="Modern luxury home in Central Texas"
-        />
+        {heroImage && (
+          <Image
+            className="w-full h-full object-cover"
+            src={heroImage}
+            alt="Modern luxury home in Central Texas"
+            fill
+            priority
+            quality={95}
+          />
+        )}
       </div>
       
       <div className="relative z-20 mx-auto max-w-7xl px-4 py-24 sm:py-32 sm:px-6 lg:px-8">
