@@ -93,12 +93,17 @@ export default function Header() {
                 alt="APRE"
                 width={120}
                 height={40}
-                className="h-10 w-auto"
+                className="h-12 w-auto"
                 quality={95}
               />
-              <div className="text-xs text-charcoal-600 font-medium">
-                <div>KW Luxury</div>
-              </div>
+              <Image
+                src="/assets/KW-Luxury-Logo-Black.png"
+                alt="KW Luxury"
+                width={80}
+                height={30}
+                className="h-12 w-auto"
+                quality={95}
+              />
             </div>
           </div>
 
