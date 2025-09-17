@@ -52,7 +52,7 @@ export default function Footer() {
               <li><a href="https://stavrosrealtyteam.kw.com/search" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Property Search</a></li>
               <li><a href="https://stavrosrealtyteam.kw.com/home-valuation" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Home Valuation</a></li>
               <li><a href="https://stavrosrealtyteam.kw.com/mortgage-calculator" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Mortgage Calculator</a></li>
-              <li><a href="https://a.nhb.app" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">New Construction Search Tool</a></li>
+              <li><a href="https://a.nhb.app/u/spero-stavros" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">New Construction Search Tool</a></li>
             </ul>
           </div>
 
