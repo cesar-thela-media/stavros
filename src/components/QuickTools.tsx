@@ -9,9 +9,9 @@ const quickTools = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
-    gradient: "from-navy-600 to-navy-700",
-    bgColor: "bg-cream-100",
-    textColor: "text-navy-700"
+    gradient: "from-charcoal-600 to-charcoal-700",
+    bgColor: "bg-misty-100",
+    textColor: "text-champagne-600"
   },
   {
     title: "Calculate Your Mortgage",
@@ -23,21 +23,21 @@ const quickTools = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>
     ),
-    gradient: "from-gold-600 to-gold-700",
-    bgColor: "bg-cream-100",
-    textColor: "text-gold-700"
+    gradient: "from-champagne-600 to-champagne-700",
+    bgColor: "bg-misty-100",
+    textColor: "text-champagne-700"
   }
 ]
 
 export default function QuickTools() {
   return (
-    <section className="section-padding bg-gradient-to-br from-cream-50 to-cream-200">
+    <section className="section-padding bg-gradient-to-br from-misty-50 to-misty-200">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl font-serif">
+          <h2 className="text-3xl font-bold tracking-tight text-black-900 sm:text-4xl font-heading">
             Essential Real Estate Tools
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal-600">
             Get instant access to the most important tools for your real estate journey
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function QuickTools() {
           {quickTools.map((tool, index) => (
             <div 
               key={index}
-              className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cream-300/50`}
+              className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-misty-300/50`}
             >
               <div className="flex items-start space-x-6">
                 <div className={`${tool.textColor} flex-shrink-0`}>
@@ -56,7 +56,7 @@ export default function QuickTools() {
                   <h3 className={`text-2xl font-bold ${tool.textColor} mb-3`}>
                     {tool.title}
                   </h3>
-                  <p className="text-navy-700 mb-6 text-lg leading-relaxed">
+                  <p className="text-charcoal-700 mb-6 text-lg leading-relaxed">
                     {tool.description}
                   </p>
                   <a
@@ -83,12 +83,12 @@ export default function QuickTools() {
 
         {/* Additional CTA Section */}
         <div className="mt-16">
-          <div className="bg-gradient-to-r from-navy-50 to-cream-50 rounded-2xl p-12 shadow-xl border border-cream-300 mx-auto">
+            <div className="bg-gradient-to-r from-misty-50 to-white rounded-2xl p-12 shadow-xl border border-misty-300 mx-auto">
             <div className="text-center max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold text-navy-900 mb-6">
+              <h3 className="text-3xl font-bold text-black-900 mb-6 font-heading">
                 Need Expert Guidance?
               </h3>
-              <p className="text-navy-700 mb-8 text-lg leading-relaxed">
+              <p className="text-charcoal-700 mb-8 text-lg leading-relaxed">
                 While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. With over 26+ years of proven experience, Spero and his team will give you the personal advice online tools can't. Call today to discuss your real estate goals with confidence and comfort throughout the process.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

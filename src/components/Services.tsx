@@ -39,13 +39,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="expertise" className="section-padding bg-primary-50">
+    <section id="expertise" className="section-padding bg-misty-50">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
+          <h2 className="text-3xl font-bold tracking-tight text-black-900 sm:text-4xl font-heading">
             Spero's and The Stavros Realty Team's Expertise
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal-600">
             From first-time buyers to luxury estates and custom home construction - comprehensive services backed by 26+ years of award-winning experience.
           </p>
         </div>
@@ -53,17 +53,17 @@ export default function Services() {
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div key={index} className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 text-gold-600">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-champagne-100 text-champagne-600">
                 {service.icon}
               </div>
-              <h3 className="mt-6 text-xl font-semibold text-primary-900">{service.title}</h3>
-              <p className="mt-2 text-primary-600">{service.description}</p>
+              <h3 className="mt-6 text-xl font-semibold text-black-900 font-heading">{service.title}</h3>
+              <p className="mt-2 text-charcoal-600">{service.description}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-white rounded-lg p-6 shadow-sm border border-primary-200 max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-misty-200 max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
                 href="tel:+15126619404" 

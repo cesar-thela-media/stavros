@@ -40,10 +40,10 @@ export default function FeaturedProperties() {
     <section className="section-padding bg-white">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
+          <h2 className="text-3xl font-bold tracking-tight text-black-900 sm:text-4xl font-heading">
             Featured Properties
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal-600">
             Discover our handpicked selection of luxury properties in Central Texas&apos; most desirable locations.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function FeaturedProperties() {
                   />
                   {property.status && (
                     <div className="absolute top-4 left-4">
-                      <span className="inline-block bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-semibold">
+                      <span className="inline-block bg-champagne-500 text-black-900 px-3 py-1 rounded-full text-sm font-semibold">
                         {property.status}
                       </span>
                     </div>
@@ -68,11 +68,11 @@ export default function FeaturedProperties() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-primary-900">{property.title}</h3>
-                    <span className="text-2xl font-bold text-gold-600">{property.price}</span>
+                    <h3 className="text-xl font-semibold text-black-900 font-heading">{property.title}</h3>
+                    <span className="text-2xl font-bold text-champagne-600">{property.price}</span>
                   </div>
-                  <p className="text-primary-600 mb-4">{property.location}</p>
-                  <div className="flex items-center justify-between text-sm text-primary-500">
+                  <p className="text-charcoal-600 mb-4">{property.location}</p>
+                  <div className="flex items-center justify-between text-sm text-charcoal-500">
                     <span>{property.beds} beds</span>
                     <span>{property.baths} baths</span>
                     <span>{property.sqft} sq ft</span>
