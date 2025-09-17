@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { handleFormSubmission, FormSubmissionResponse } from '@/utils/formSubmission'
 
 interface Property {
   id: string
@@ -16,17 +17,66 @@ interface ContactFormProps {
 
 export default function ContactForm({ property }: ContactFormProps) {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     message: `I'm interested in learning more about ${property.address} in ${property.city}, ${property.state}.`
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
+  const [isMounted, setIsMounted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your interest! Spero will contact you soon.')
+    
+    // Only proceed if component is mounted (client-side)
+    if (!isMounted) return
+    
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      const response: FormSubmissionResponse = await handleFormSubmission(
+        e.currentTarget,
+        {
+          formType: 'property-inquiry',
+          source: 'property-listing',
+          propertyAddress: property.address,
+          propertyCity: property.city,
+          propertyState: property.state,
+          propertyZipCode: property.zipCode,
+          propertyId: property.id,
+        }
+      )
+
+      if (response.success) {
+        setSubmitMessage('Thank you for your interest! Spero will contact you soon.')
+        // Reset form safely
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: `I'm interested in learning more about ${property.address} in ${property.city}, ${property.state}.`
+        })
+        // Also reset the actual form element if it exists
+        if (e.currentTarget) {
+          e.currentTarget.reset()
+        }
+      } else {
+        setSubmitMessage(response.message + (response.error ? ` (${response.error})` : ''))
+      }
+    } catch (error) {
+      setSubmitMessage('An unexpected error occurred. Please try again.')
+      console.error('Form submission error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -52,19 +102,35 @@ export default function ContactForm({ property }: ContactFormProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-navy-700 mb-1">
-              Full Name *
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName" className="block text-sm font-medium text-navy-700 mb-1">
+                First Name *
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                value={formData.firstName}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName" className="block text-sm font-medium text-navy-700 mb-1">
+                Last Name *
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                value={formData.lastName}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+              />
+            </div>
           </div>
 
           <div>
@@ -112,10 +178,21 @@ export default function ContactForm({ property }: ContactFormProps) {
 
           <button
             type="submit"
-            className="w-full btn-primary"
+            disabled={isSubmitting || !isMounted}
+            className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Request Information
+            {!isMounted ? 'Loading...' : isSubmitting ? 'Submitting...' : 'Request Information'}
           </button>
+          
+          {submitMessage && (
+            <div className={`mt-4 p-3 rounded-md text-sm ${
+              submitMessage.includes('Thank you') 
+                ? 'bg-green-100 text-green-800 border border-green-200' 
+                : 'bg-red-100 text-red-800 border border-red-200'
+            }`}>
+              {submitMessage}
+            </div>
+          )}
         </form>
 
         <div className="mt-6 pt-6 border-t border-cream-300">

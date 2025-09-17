@@ -1,4 +1,51 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { handleFormSubmission, FormSubmissionResponse } from '@/utils/formSubmission'
+
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    // Only proceed if component is mounted (client-side)
+    if (!isMounted) return
+    
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      const response: FormSubmissionResponse = await handleFormSubmission(
+        e.currentTarget,
+        {
+          formType: 'contact',
+          source: 'homepage',
+        }
+      )
+
+      if (response.success) {
+        setSubmitMessage('Thank you for your message! We will get back to you soon.')
+        // Reset form safely
+        if (e.currentTarget) {
+          e.currentTarget.reset()
+        }
+      } else {
+        setSubmitMessage(response.message + (response.error ? ` (${response.error})` : ''))
+      }
+    } catch (error) {
+      console.error('Unexpected error in form submission:', error)
+      setSubmitMessage('An unexpected error occurred. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <section id="contact" className="section-padding bg-primary-900">
       <div className="mx-auto max-w-7xl">
@@ -58,37 +105,60 @@ export default function Contact() {
           </div>
 
           <div>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="firstName"
                   placeholder="First Name"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-primary-700 rounded-md text-white placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                 />
                 <input
                   type="text"
+                  name="lastName"
                   placeholder="Last Name"
+                  required
                   className="w-full px-4 py-3 bg-white/10 border border-primary-700 rounded-md text-white placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                 />
               </div>
               <input
                 type="email"
+                name="email"
                 placeholder="Email Address"
+                required
                 className="w-full px-4 py-3 bg-white/10 border border-primary-700 rounded-md text-white placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone Number"
                 className="w-full px-4 py-3 bg-white/10 border border-primary-700 rounded-md text-white placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
               />
               <textarea
+                name="message"
                 rows={4}
                 placeholder="How can we help you?"
+                required
                 className="w-full px-4 py-3 bg-white/10 border border-primary-700 rounded-md text-white placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent"
               ></textarea>
-              <button type="submit" className="w-full btn-primary">
-                Send Message
+              <button 
+                type="submit" 
+                disabled={isSubmitting || !isMounted}
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {!isMounted ? 'Loading...' : isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+              
+              {submitMessage && (
+                <div className={`mt-4 p-3 rounded-md text-sm ${
+                  submitMessage.includes('Thank you') 
+                    ? 'bg-green-100 text-green-800 border border-green-200' 
+                    : 'bg-red-100 text-red-800 border border-red-200'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
             </form>
           </div>
         </div>

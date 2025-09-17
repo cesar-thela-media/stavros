@@ -49,57 +49,45 @@ export default function FeaturedProperties() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {properties.map((property) => {
-            const PropertyCard = (
-              <div className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="aspect-w-16 aspect-h-12 overflow-hidden relative">
-                  <img
-                    src={property.image}
-                    alt={property.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {property.status && (
-                    <div className="absolute top-4 left-4">
-                      <span className="inline-block bg-champagne-500 text-black-900 px-3 py-1 rounded-full text-sm font-semibold">
-                        {property.status}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-black-900 font-heading">{property.title}</h3>
-                    <span className="text-2xl font-bold text-champagne-600">{property.price}</span>
+          {properties.map((property) => (
+            <div key={property.id} className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div className="aspect-w-16 aspect-h-12 overflow-hidden relative">
+                <img
+                  src={property.image}
+                  alt={property.title}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {property.status && (
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-block bg-champagne-500 text-black-900 px-3 py-1 rounded-full text-sm font-semibold">
+                      {property.status}
+                    </span>
                   </div>
-                  <p className="text-charcoal-600 mb-4">{property.location}</p>
-                  <div className="flex items-center justify-between text-sm text-charcoal-500">
-                    <span>{property.beds} beds</span>
-                    <span>{property.baths} baths</span>
-                    <span>{property.sqft} sq ft</span>
-                  </div>
-                  {property.link ? (
-                    <Link href={property.link} className="mt-4 w-full btn-secondary block text-center">
-                      View Details
-                    </Link>
-                  ) : (
-                    <button className="mt-4 w-full btn-secondary">
-                      View Details
-                    </button>
-                  )}
+                )}
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-black-900 font-heading">{property.title}</h3>
+                  <span className="text-2xl font-bold text-champagne-600">{property.price}</span>
                 </div>
+                <p className="text-charcoal-600 mb-4">{property.location}</p>
+                <div className="flex items-center justify-between text-sm text-charcoal-500">
+                  <span>{property.beds} beds</span>
+                  <span>{property.baths} baths</span>
+                  <span>{property.sqft} sq ft</span>
+                </div>
+                {property.link ? (
+                  <Link href={property.link} className="mt-4 w-full btn-secondary block text-center">
+                    View Details
+                  </Link>
+                ) : (
+                  <button className="mt-4 w-full btn-secondary">
+                    View Details
+                  </button>
+                )}
               </div>
-            )
-
-            return property.link ? (
-              <Link key={property.id} href={property.link} className="block">
-                {PropertyCard}
-              </Link>
-            ) : (
-              <div key={property.id}>
-                {PropertyCard}
-              </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 text-center">
