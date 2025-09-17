@@ -2,7 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Mansory Font Family - For Headings */
+@font-face {
+  font-family: 'Mansory';
+  src: url('/fonts/Mansory-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mansory';
+  src: url('/fonts/Mansory-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mansory';
+  src: url('/fonts/Mansory-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mansory';
+  src: url('/fonts/Mansory-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Amalfi Coast Font - For Accents */
+@font-face {
+  font-family: 'Amalfi Coast';
+  src: url('/fonts/Amalfi Coast.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --foreground-rgb: 32, 33, 36; /* primary-900 */
@@ -11,6 +53,7 @@
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       135deg,
@@ -18,6 +61,37 @@ body {
       rgb(var(--background-end-rgb)) 100%
     );
   min-height: 100vh;
+}
+
+/* Mansory Font Weight Hierarchy for Headings */
+h1, .h1 {
+  font-family: 'Mansory', serif;
+  font-weight: 700; /* Bold */
+}
+
+h2, .h2 {
+  font-family: 'Mansory', serif;
+  font-weight: 600; /* SemiBold */
+}
+
+h3, .h3 {
+  font-family: 'Mansory', serif;
+  font-weight: 600; /* SemiBold */
+}
+
+h4, .h4 {
+  font-family: 'Mansory', serif;
+  font-weight: 500; /* Medium */
+}
+
+h5, .h5 {
+  font-family: 'Mansory', serif;
+  font-weight: 500; /* Medium */
+}
+
+h6, .h6 {
+  font-family: 'Mansory', serif;
+  font-weight: 400; /* Regular */
 }
 
 @layer components {

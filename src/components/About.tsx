@@ -17,31 +17,13 @@ export default function About() {
               Backed by Keller Williams' cutting-edge technology, comprehensive training, and global network of 170,000+ agents, Spero delivers world-class service with local expertise in Central Texas markets.
             </p>
             
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-600">26+</div>
-                <div className="text-sm text-primary-600">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-600">170K+</div>
-                <div className="text-sm text-primary-600">Agent Network</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-600">Multi-Million</div>
-                <div className="text-sm text-primary-600">Dollar Club</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-600">Custom</div>
-                <div className="text-sm text-primary-600">Home Expert</div>
-              </div>
-            </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a 
                 href="#contact" 
                 className="btn-primary"
               >
-                Schedule Your Consultation
+                Schedule a Free Consultation
               </a>
               <a 
                 href="https://stavrosrealtyteam.kw.com/agent" 

@@ -7,6 +7,7 @@ import Services from '@/components/Services'
 import MarketInsights from '@/components/MarketInsights'
 import KWTools from '@/components/KWTools'
 import About from '@/components/About'
+import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <MarketInsights />
         <KWTools />
         <About />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

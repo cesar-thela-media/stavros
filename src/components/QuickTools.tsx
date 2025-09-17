@@ -89,7 +89,7 @@ export default function QuickTools() {
                 Need Expert Guidance?
               </h3>
               <p className="text-navy-700 mb-8 text-lg leading-relaxed">
-                While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. Let Spero Stavros guide you through your real estate journey with 26+ years of expertise.
+                While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. With over 26+ years of proven experience, Spero and his team will give you the personal advice online tools can't. Call today to discuss your real estate goals with confidence and comfort throughout the process.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a 
@@ -105,7 +105,7 @@ export default function QuickTools() {
                   href="#contact"
                   className="btn-secondary"
                 >
-                  Schedule Consultation
+                  Schedule a Free Consultation
                 </a>
               </div>
             </div>

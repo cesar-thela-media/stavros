@@ -81,8 +81,11 @@ const config: Config = {
         }
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
-        'sans': ['Inter', 'sans-serif'],
+        'heading': ['Mansory', 'serif'],
+        'accent': ['Amalfi Coast', 'cursive'],
+        'sans': ['Montserrat', 'sans-serif'],
+        // Keep legacy font families for backward compatibility
+        'serif': ['Mansory', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

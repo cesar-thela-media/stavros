@@ -15,12 +15,11 @@ export default function Hero() {
       <div className="relative z-20 mx-auto max-w-7xl px-4 py-24 sm:py-32 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-serif">
-            Central Texas Real Estate
-            <span className="block text-gold-400">Powered by Keller Williams Excellence</span>
+            Stavros Realty Team
+            <span className="block text-gold-400 text-2xl sm:text-3xl mt-2">Experience • Integrity • Excellence</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-200">
-            Experience 26+ years of award-winning service with Spero Stavros and the Stavros Realty Team. 
-            From luxury estates to first-time buyers, we deliver results with cutting-edge technology and personalized care.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-200">
+            Serving Central Texas with Relationships Nationally & Globally
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a 
@@ -32,7 +31,7 @@ export default function Hero() {
               View Properties
             </a>
             <Link href="#contact" className="btn-secondary border-white text-white hover:bg-white hover:text-primary-900">
-              Schedule Consultation
+              Schedule a Free Consultation
             </Link>
           </div>
         </div>

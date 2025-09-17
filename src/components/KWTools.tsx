@@ -77,6 +77,17 @@ const kwTools = [
   //   color: "bg-forest-200 text-forest-700"
   // },
   {
+    title: "New Construction - Amazing New Search Tool",
+    description: "Your New Home Awaits! Discover and search new construction properties with our cutting-edge tool",
+    url: "https://a.nhb.app",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
+    color: "bg-forest-100 text-forest-600"
+  },
+  {
     title: "Agent Profile",
     description: "Learn more about Spero Stavros and the Stavros Realty Team",
     url: "https://stavrosrealtyteam.kw.com/agent",
@@ -98,7 +109,7 @@ export default function KWTools() {
             Real Estate Tools & Resources
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-600">
-            Access our comprehensive suite of real estate tools powered by Keller Williams technology
+            Access our comprehensive suite of real estate tools and resources
           </p>
         </div>
 
@@ -147,7 +158,7 @@ export default function KWTools() {
                 href="#contact"
                 className="btn-secondary"
               >
-                Schedule Consultation
+                Schedule a Free Consultation
               </a>
             </div>
           </div>
