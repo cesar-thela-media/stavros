@@ -38,7 +38,7 @@ export default function PropertyHero({ property }: PropertyHeroProps) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4">
             {property.address}
           </h1>
-          <p className="text-xl md:text-2xl text-cream-200 mb-4">
+          <p className="text-xl md:text-2xl text-white mb-4">
             {property.city}, {property.state} {property.zipCode}
           </p>
           <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-6">
@@ -47,26 +47,23 @@ export default function PropertyHero({ property }: PropertyHeroProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">{property.squareFootage.toLocaleString()}</div>
-              <div className="text-sm md:text-base text-cream-300">Square Feet</div>
+              <div className="text-sm md:text-base text-white">Square Feet</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">{property.bedrooms}</div>
-              <div className="text-sm md:text-base text-cream-300">Bedrooms</div>
+              <div className="text-sm md:text-base text-white">Bedrooms</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">{property.bathrooms}</div>
-              <div className="text-sm md:text-base text-cream-300">Bathrooms</div>
+              <div className="text-sm md:text-base text-white">Bathrooms</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">3</div>
-              <div className="text-sm md:text-base text-cream-300">Car Garage</div>
+              <div className="text-sm md:text-base text-white">Car Garage</div>
             </div>
           </div>
-          <div className="mt-8 space-y-2">
-            <p className="text-lg text-cream-200">
-              <span className="font-semibold text-gold-400">Builder:</span> {property.builder}
-            </p>
-            <p className="text-lg text-cream-200">
+          <div className="mt-8">
+            <p className="text-lg text-white">
               <span className="font-semibold text-gold-400">Target Completion:</span> {property.completionDate}
             </p>
           </div>
