@@ -89,11 +89,12 @@ export default function Header() {
             </Link>
             <div className="flex items-center space-x-2">
               <Image
-                src="/assets/Portfolio Logo Black.jpg"
+                src="/assets/Portfolio Logo Black.png"
                 alt="APRE"
-                width={60}
-                height={60}
+                width={120}
+                height={40}
                 className="h-10 w-auto"
+                quality={95}
               />
               <div className="text-xs text-charcoal-600 font-medium">
                 <div>KW Luxury</div>
