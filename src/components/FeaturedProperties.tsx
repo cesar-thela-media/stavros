@@ -9,7 +9,7 @@ const properties = [
     beds: 4,
     baths: 3,
     sqft: "2,726",
-    image: "/listings/winchester/Inspiration Pic - 112 Winchester HSB.png",
+    image: "/listings/winchester/IMG_3295.png",
     link: "/listings/112-winchester",
     status: "Under Construction"
   },

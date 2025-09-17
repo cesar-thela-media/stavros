@@ -26,7 +26,7 @@ export default function PropertyHero({ property }: PropertyHeroProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-800/60 z-10"></div>
         <img
           className="w-full h-full object-cover"
-          src="/listings/winchester/Inspiration Pic - 112 Winchester HSB.png"
+          src="/listings/winchester/IMG_3295.png"
           alt={`${property.address} in ${property.city}`}
         />
       </div>
