@@ -23,12 +23,12 @@ const properties = {
     bathrooms: 3,
     features: ['Study', 'Dining Room'],
     garage: '3 Car (2 + 1 Golf Cart)',
-    description: 'Stunning spec home under construction by Silverado Signature Homes in the prestigious Horseshoe Bay community. This thoughtfully designed home features 4 bedrooms, 3 bathrooms, a dedicated study, formal dining room, and a 3-car garage with additional golf cart space.',
+    description: 'Refined Hill Country Living at Horseshoe Bay\nWelcome to 112 Winchester, a thoughtfully crafted single-story residence that blends timeless elegance with modern livability. The exterior showcases smooth stucco, a charcoal metal roof, and striking architectural lines that create lasting curb appeal. Inside, expansive living spaces are filled with natural light and designed for seamless flow - perfect for both entertaining and everyday comfort.\nAt the heart of the home, the great room features soaring ceilings and wide glass doors that open to the covered patio. The chef\'s kitchen boasts generous counter space, a large island with seating, an upgraded stainless appliance package, walk-in pantry, and direct connection to both formal and casual dining areas—ideal for gatherings of any size.\nThe private owner\'s suite offers a true retreat, a spa-inspired bath featuring a soaking tub, walk-in shower, dual vanities, and an oversized walk-in closet. Three secondary bedrooms provide flexibility for guests, hobbies, or home office needs, while a dedicated study serves as a private workspace, library, or creative studio.\nOutdoor living takes center stage with a spacious covered patio, full outdoor kitchen, and ample room to enjoy peaceful Horseshoe Bay evenings. An oversized two-car garage plus a third bay for a golf cart complete the home, offering both convenience and storage.\nPerfectly positioned in the heart of Horseshoe Bay, 112 Winchester combines refined design with functional spaces ideal as a full-time residence or a Hill Country retreat.',
     gallery: ["/listings/winchester/gallery/front-view.png", "/listings/winchester/gallery/FINAL PLANS 112 Winchester[16]_Page_04.jpg"], // Additional gallery images will be added to /public/listings/winchester/gallery/
     amenities: [
       'Open Floor Plan',
       'Gourmet Kitchen',
-      'Master Suite',
+      'Primary Suite',
       'Study/Office',
       'Formal Dining',
       'Covered Patio',
