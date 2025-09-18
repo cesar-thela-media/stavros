@@ -56,13 +56,21 @@ export async function submitFormToWebhook(formData: FormData): Promise<FormSubmi
       referrer: document.referrer,
     }
 
+    // Create AbortController for timeout
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(enrichedFormData),
+      signal: controller.signal,
     })
+
+    // Clear the timeout if request completes successfully
+    clearTimeout(timeoutId)
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
@@ -85,6 +93,15 @@ export async function submitFormToWebhook(formData: FormData): Promise<FormSubmi
   } catch (error) {
     console.error('Form submission error:', error)
     console.error('Form data that failed to submit:', formData)
+    
+    // Handle timeout/abort errors specifically
+    if (error instanceof Error && error.name === 'AbortError') {
+      return {
+        success: false,
+        message: 'The request timed out. Please check your connection and try again.',
+        error: 'Request timeout',
+      }
+    }
     
     return {
       success: false,
