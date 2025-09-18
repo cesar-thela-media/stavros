@@ -19,16 +19,17 @@ interface Property {
 
 interface PropertyHeroProps {
   property: Property
+  heroImage: string
 }
 
-export default function PropertyHero({ property }: PropertyHeroProps) {
+export default function PropertyHero({ property, heroImage }: PropertyHeroProps) {
   return (
     <div className="relative bg-primary-50 overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-800/60 z-10"></div>
         <img
           className="w-full h-full object-cover"
-          src="/listings/winchester/IMG_3295.png"
+          src={heroImage}
           alt={`${property.address} in ${property.city}`}
         />
       </div>

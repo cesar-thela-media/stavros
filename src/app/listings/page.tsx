@@ -79,18 +79,13 @@ export default function ListingsPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <div className="relative bg-primary-50 overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/assets/hero4.png"
-              alt="Luxury home exterior"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0 bg-black/90"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div 
+          className="relative bg-primary-50 overflow-hidden bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/assets/hero4.png')`
+          }}
+        >
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-20">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4 drop-shadow-lg">
                 Available Properties

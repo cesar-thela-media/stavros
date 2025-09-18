@@ -5,6 +5,7 @@ import PropertyHero from '@/components/PropertyHero'
 import PropertyDetails from '@/components/PropertyDetails'
 import PropertyGallery from '@/components/PropertyGallery'
 import ContactForm from '@/components/ContactForm'
+import { getHeroImageWithFallback } from '@/utils/getHeroImage'
 
 // Property data - in a real app, this would come from a database or CMS
 const properties = {
@@ -37,7 +38,7 @@ const properties = {
     amenities: [
       'Open Floor Plan',
       'Gourmet Kitchen',
-      'Primary Suite',
+      'Primary Retreat',
       'Study/Office',
       'Formal Dining',
       'Covered Patio',
@@ -68,7 +69,6 @@ const properties = {
     garage: '2 Car Garage',
     description: 'Stunning Custom Home in Horseshoe Bay\nDiscover this beautifully designed 3-bedroom, 3-bathroom home with study, perfectly situated in the prestigious Horseshoe Bay community. This 2,732 square foot residence offers the perfect blend of modern comfort and Hill Country charm.\nThe thoughtfully designed floor plan features spacious living areas with an open concept design that flows seamlessly from room to room. The well-appointed kitchen serves as the heart of the home, ideal for both everyday living and entertaining guests.\nThe private master suite provides a peaceful retreat, while two additional bedrooms offer flexibility for family, guests, or home office needs. The dedicated study provides the perfect space for remote work or quiet reading.\nLocated in the sought-after Horseshoe Bay community, this home offers resort-style living with access to golf courses, marina, and Lake LBJ while maintaining the peaceful atmosphere that makes this area so desirable. With excellent amenities and beautiful Hill Country surroundings, this property represents an exceptional opportunity.',
     gallery: [
-      "/listings/mountain-dew/820 Mountain Dew Final Render 2.png",
       "/listings/mountain-dew/gallery/820 Mountain Dew Final Render 2.png",
       "/listings/mountain-dew/gallery/20230317_171815.jpeg",
       "/listings/mountain-dew/gallery/mountain-dew-wiring.png"
@@ -76,7 +76,7 @@ const properties = {
     amenities: [
       'Open Floor Plan',
       'Modern Kitchen',
-      'Primary Suite',
+      'Primary Retreat',
       'Study/Office',
       'Hill Country Views',
       '2-Car Garage',
@@ -113,7 +113,7 @@ const properties = {
       'Approved Plans Included',
       'Open Floor Plan Design',
       'Modern Kitchen Layout',
-      'Primary Suite',
+      'Primary Retreat',
       'Study/Office',
       'Hill Country Views',
       '2-Car Garage',
@@ -161,11 +161,14 @@ export default function PropertyPage({ params }: PageProps) {
     notFound()
   }
 
+  // Automatically detect the hero image from the property's folder
+  const heroImage = getHeroImageWithFallback(property.id, property.gallery)
+
   return (
     <>
       <Header />
       <main>
-        <PropertyHero property={property} />
+        <PropertyHero property={property} heroImage={heroImage} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-8">
