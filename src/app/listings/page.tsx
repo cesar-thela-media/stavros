@@ -14,8 +14,9 @@ const properties = [
     zipCode: '78657',
     price: 925000,
     builder: 'Silverado Signature Homes',
-    status: 'Under Construction',
+    status: 'Available - Under Construction',
     completionDate: 'February 2026',
+    classification: 'home' as const,
     squareFootage: 2726,
     bedrooms: 4,
     bathrooms: 3,
@@ -23,6 +24,47 @@ const properties = [
     garage: '3 Car (2 + 1 Golf Cart)',
     description: 'Stunning spec home under construction by Silverado Signature Homes in the prestigious Horseshoe Bay community.',
     image: '/listings/winchester/Inspiration Pic - 112 Winchester HSB.png'
+  },
+  {
+    id: 'mountain-dew',
+    slug: 'mountain-dew',
+    address: '820 Mountain Dew',
+    city: 'Horseshoe Bay',
+    state: 'TX',
+    zipCode: '78620',
+    price: 959000,
+    builder: 'Custom Builder',
+    status: 'Available - Build Ready',
+    completionDate: 'TBD',
+    classification: 'home' as const,
+    squareFootage: 2732,
+    bedrooms: 3,
+    bathrooms: 3,
+    features: ['Study', 'Open Floor Plan'],
+    garage: '2 Car Garage',
+    description: 'Stunning custom home in Horseshoe Bay featuring 3 bedrooms, 3 bathrooms, and a study in 2,732 square feet of thoughtfully designed living space.',
+    image: '/listings/mountain-dew/820 Mountain Dew Final Render 2.png'
+  },
+  {
+    id: 'mountain-dew-land',
+    slug: 'mountain-dew-land',
+    address: '820 Mountain Dew',
+    city: 'Horseshoe Bay',
+    state: 'TX',
+    zipCode: '78620',
+    price: 58900,
+    builder: 'Custom Builder',
+    status: 'Available - Land Only',
+    completionDate: 'Ready for Construction',
+    classification: 'land' as const,
+    lotSize: '0.25 acres',
+    squareFootage: null,
+    bedrooms: null,
+    bathrooms: null,
+    features: ['Approved Plans Included'],
+    garage: null,
+    description: 'Prime 0.25-acre building lot in Horseshoe Bay with approved plans for a stunning 3-bedroom, 3-bathroom home with study.',
+    image: '/listings/mountain-dew-land/20230317_171815.jpeg'
   }
 ]
 
@@ -38,13 +80,22 @@ export default function ListingsPage() {
       <main>
         {/* Hero Section */}
         <div className="relative bg-primary-50 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 to-primary-800/60"></div>
+          <div className="absolute inset-0">
+            <Image
+              src="/assets/hero4.png"
+              alt="Luxury home exterior"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="absolute inset-0 bg-black/90"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4">
-                Current Listings
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4 drop-shadow-lg">
+                Available Properties
               </h1>
-              <p className="text-xl md:text-2xl text-cream-200 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md">
                 Discover exceptional properties and new construction opportunities in Central Texas
               </p>
             </div>
@@ -85,27 +136,33 @@ export default function ListingsPage() {
                     ${property.price.toLocaleString()}
                   </p>
                   
-                  <div className="grid grid-cols-3 gap-4 mb-4 text-center">
-                    <div>
-                      <div className="font-semibold text-navy-900">{property.squareFootage.toLocaleString()}</div>
-                      <div className="text-sm text-primary-600">Sq Ft</div>
+                  {property.classification === 'home' ? (
+                    <div className="grid grid-cols-3 gap-4 mb-4 text-center">
+                      <div>
+                        <div className="font-semibold text-navy-900">{property.squareFootage?.toLocaleString()}</div>
+                        <div className="text-sm text-primary-600">Sq Ft</div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-navy-900">{property.bedrooms}</div>
+                        <div className="text-sm text-primary-600">Beds</div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-navy-900">{property.bathrooms}</div>
+                        <div className="text-sm text-primary-600">Baths</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-navy-900">{property.bedrooms}</div>
-                      <div className="text-sm text-primary-600">Beds</div>
+                  ) : (
+                    <div className="mb-4 text-center">
+                      <div className="text-lg font-semibold text-navy-900">Building Lot</div>
+                      <div className="text-sm text-primary-600">{property.lotSize || 'Ready for Construction'}</div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-navy-900">{property.bathrooms}</div>
-                      <div className="text-sm text-primary-600">Baths</div>
-                    </div>
-                  </div>
+                  )}
                   
                   <p className="text-primary-700 mb-4 line-clamp-2">
                     {property.description}
                   </p>
                   
                   <div className="space-y-2 text-sm">
-                    <p><span className="font-medium text-gold-700">Builder:</span> <span className="text-primary-700">{property.builder}</span></p>
                     <p><span className="font-medium text-gold-700">Completion:</span> <span className="text-primary-700">{property.completionDate}</span></p>
                   </div>
                   
@@ -123,21 +180,37 @@ export default function ListingsPage() {
           </div>
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
-            <div className="bg-cream-100 rounded-2xl p-8 border border-cream-300">
-              <h2 className="text-2xl font-bold font-serif text-navy-900 mb-4">
-                Don't See What You're Looking For?
-              </h2>
-              <p className="text-primary-700 mb-6 max-w-2xl mx-auto">
-                Contact Spero Stavros to discuss your specific needs and explore off-market opportunities 
-                and upcoming listings in Central Texas.
-              </p>
-              <Link
-                href="/#contact"
-                className="btn-primary"
-              >
-                Contact Spero
-              </Link>
+          <div className="mt-16">
+            <div className="bg-cream-100 rounded-2xl overflow-hidden border border-cream-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 min-h-[400px]">
+                {/* Left side - Text and Button */}
+                <div className="flex flex-col justify-center p-8 md:p-12">
+                  <h2 className="text-2xl md:text-3xl font-bold font-serif text-navy-900 mb-4">
+                    Looking for Something Different?
+                  </h2>
+                  <p className="text-primary-700 mb-6 text-lg">
+                    Explore other custom home options—or give us a call to discuss building one tailored just for you.
+                  </p>
+                  <div>
+                    <a
+                      href="tel:+15126619404"
+                      className="btn-primary"
+                    >
+                      Call to discuss a custom build
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Right side - Image */}
+                <div className="relative">
+                  <Image
+                    src="/assets/Image.jpeg"
+                    alt="Spero Stavros Real Estate Professional"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

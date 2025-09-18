@@ -16,8 +16,9 @@ const properties = {
     zipCode: '78657',
     price: 925000,
     builder: 'Silverado Signature Homes',
-    status: 'Under Construction',
+    status: 'Available - Under Construction',
     completionDate: 'February 2026',
+    classification: 'home' as const,
     squareFootage: 2726,
     bedrooms: 4,
     bathrooms: 3,
@@ -42,6 +43,81 @@ const properties = {
       'Covered Patio',
       '3-Car Garage',
       'Golf Cart Bay'
+    ],
+    location: {
+      community: 'Horseshoe Bay',
+      schools: 'Llano ISD',
+      nearby: ['Lake LBJ', 'Golf Courses', 'Marina', 'Country Club']
+    }
+  },
+  'mountain-dew': {
+    id: 'mountain-dew',
+    address: '820 Mountain Dew',
+    city: 'Horseshoe Bay',
+    state: 'TX',
+    zipCode: '78620',
+    price: 959000,
+    builder: 'Custom Builder',
+    status: 'Available - Build Ready',
+    completionDate: 'TBD',
+    classification: 'home' as const,
+    squareFootage: 2732,
+    bedrooms: 3,
+    bathrooms: 3,
+    features: ['Study', 'Open Floor Plan'],
+    garage: '2 Car Garage',
+    description: 'Stunning Custom Home in Horseshoe Bay\nDiscover this beautifully designed 3-bedroom, 3-bathroom home with study, perfectly situated in the prestigious Horseshoe Bay community. This 2,732 square foot residence offers the perfect blend of modern comfort and Hill Country charm.\nThe thoughtfully designed floor plan features spacious living areas with an open concept design that flows seamlessly from room to room. The well-appointed kitchen serves as the heart of the home, ideal for both everyday living and entertaining guests.\nThe private master suite provides a peaceful retreat, while two additional bedrooms offer flexibility for family, guests, or home office needs. The dedicated study provides the perfect space for remote work or quiet reading.\nLocated in the sought-after Horseshoe Bay community, this home offers resort-style living with access to golf courses, marina, and Lake LBJ while maintaining the peaceful atmosphere that makes this area so desirable. With excellent amenities and beautiful Hill Country surroundings, this property represents an exceptional opportunity.',
+    gallery: [
+      "/listings/mountain-dew/820 Mountain Dew Final Render 2.png",
+      "/listings/mountain-dew/gallery/820 Mountain Dew Final Render 2.png",
+      "/listings/mountain-dew/gallery/20230317_171815.jpeg",
+      "/listings/mountain-dew/gallery/mountain-dew-wiring.png"
+    ],
+    amenities: [
+      'Open Floor Plan',
+      'Modern Kitchen',
+      'Primary Suite',
+      'Study/Office',
+      'Hill Country Views',
+      '2-Car Garage',
+      'Custom Design'
+    ],
+    location: {
+      community: 'Horseshoe Bay',
+      schools: 'Llano ISD',
+      nearby: ['Lake LBJ', 'Golf Courses', 'Marina', 'Country Club']
+    }
+  },
+  'mountain-dew-land': {
+    id: 'mountain-dew-land',
+    address: '820 Mountain Dew',
+    city: 'Horseshoe Bay',
+    state: 'TX',
+    zipCode: '78620',
+    price: 58900,
+    builder: 'Custom Builder',
+    status: 'Available - Land Only',
+    completionDate: 'Ready for Construction',
+    classification: 'land' as const,
+    squareFootage: null,
+    lotSize: '0.25 acres',
+    bedrooms: null,
+    bathrooms: null,
+    features: ['Approved Plans Included'],
+    garage: null,
+    description: 'Prime 0.25-Acre Building Lot in Horseshoe Bay\nSecure this exceptional building opportunity in the prestigious Horseshoe Bay community. This prime 0.25-acre lot comes with approved plans for a stunning 3-bedroom, 3-bathroom home with study, totaling 2,732 square feet of thoughtfully designed living space.\nThe approved floor plan features spacious living areas with an open concept design that flows seamlessly from room to room. The well-appointed kitchen serves as the heart of the home, ideal for both everyday living and entertaining guests.\nThe private master suite provides a peaceful retreat, while two additional bedrooms offer flexibility for family, guests, or home office needs. The dedicated study provides the perfect space for remote work or quiet reading.\nLocated in the sought-after Horseshoe Bay community, this lot offers resort-style living with access to golf courses, marina, and Lake LBJ while maintaining the peaceful atmosphere that makes this area so desirable. With excellent amenities and beautiful Hill Country surroundings, this property represents an exceptional opportunity to build your dream home on a generous quarter-acre lot.\nPlans included - ready to start construction with your preferred builder.',
+    gallery: [
+      "/listings/mountain-dew-land/20230317_171815.jpeg"
+    ],
+    amenities: [
+      'Approved Plans Included',
+      'Open Floor Plan Design',
+      'Modern Kitchen Layout',
+      'Primary Suite',
+      'Study/Office',
+      'Hill Country Views',
+      '2-Car Garage',
+      'Custom Design Ready'
     ],
     location: {
       community: 'Horseshoe Bay',

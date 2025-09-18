@@ -6,15 +6,43 @@ const properties = [
     title: "112 Winchester",
     location: "Horseshoe Bay, TX",
     price: "$925,000",
+    classification: "home" as const,
     beds: 4,
     baths: 3,
     sqft: "2,726",
     image: "/listings/winchester/IMG_3295.png",
     link: "/listings/112-winchester",
-    status: "Under Construction"
+    status: "Available - Under Construction"
   },
   {
     id: 2,
+    title: "820 Mountain Dew",
+    location: "Horseshoe Bay, TX",
+    price: "$959,000",
+    classification: "home" as const,
+    beds: 3,
+    baths: 3,
+    sqft: "2,732",
+    image: "/listings/mountain-dew/820 Mountain Dew Final Render 2.png",
+    link: "/listings/mountain-dew",
+    status: "Available - Build Ready"
+  },
+  {
+    id: 3,
+    title: "820 Mountain Dew",
+    location: "Horseshoe Bay, TX",
+    price: "$58,900",
+    classification: "land" as const,
+    lotSize: "0.25 acres",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "/listings/mountain-dew-land/20230317_171815.jpeg",
+    link: "/listings/mountain-dew-land",
+    status: "Available - Land Only"
+  },
+  {
+    id: 4,
     title: "126 Lipizzan Lane",
     location: "La Ventana",
     price: "Sold",
@@ -25,7 +53,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 3,
+    id: 5,
     title: "2109 Skyview Ridge Pass",
     location: "Tavisio",
     price: "Sold",
@@ -36,7 +64,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 4,
+    id: 6,
     title: "144 Shady Hill Loop",
     location: "Liberty Hill",
     price: "Sold",
@@ -47,7 +75,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 5,
+    id: 7,
     title: "170 Lone Spur Lane",
     location: "Driftwood",
     price: "Sold",
@@ -58,7 +86,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 6,
+    id: 8,
     title: "213 Northcrest Drive",
     location: "Liberty Hill",
     price: "Sold",
@@ -69,7 +97,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 7,
+    id: 9,
     title: "1638 Trebled Waters",
     location: "Driftwood",
     price: "Sold",
@@ -118,11 +146,15 @@ export default function FeaturedProperties() {
                   <div className="text-sm text-charcoal-500 mb-4">
                     <span className="text-champagne-600 font-semibold">Represented Builder</span>
                   </div>
-                ) : (
+                ) : property.classification === "home" ? (
                   <div className="flex items-center justify-between text-sm text-charcoal-500 mb-4">
                     <span>{property.beds} beds</span>
                     <span>{property.baths} baths</span>
                     <span>{property.sqft} sq ft</span>
+                  </div>
+                ) : (
+                  <div className="text-sm text-charcoal-500 mb-4 text-center">
+                    <span className="text-champagne-600 font-semibold">Building Lot - {property.lotSize || "Ready for Construction"}</span>
                   </div>
                 )}
                 {property.status !== "Sold" && (

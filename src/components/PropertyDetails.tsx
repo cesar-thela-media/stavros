@@ -8,11 +8,12 @@ interface Property {
   builder: string
   status: string
   completionDate: string
-  squareFootage: number
-  bedrooms: number
-  bathrooms: number
+  classification: 'home' | 'land'
+  squareFootage: number | null
+  bedrooms: number | null
+  bathrooms: number | null
   features: string[]
-  garage: string
+  garage: string | null
   description: string
   gallery: string[]
   amenities: string[]
@@ -21,6 +22,7 @@ interface Property {
     schools: string
     nearby: string[]
   }
+  lotSize?: string
 }
 
 interface PropertyDetailsProps {
@@ -44,31 +46,47 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
         <div className="luxury-card">
           <h4 className="font-semibold text-navy-900 mb-2">Property Details</h4>
           <ul className="space-y-2 text-primary-700">
-            <li><span className="font-medium text-gold-700">Square Footage:</span> {property.squareFootage.toLocaleString()} sq ft</li>
-            <li><span className="font-medium text-gold-700">Bedrooms:</span> {property.bedrooms}</li>
-            <li><span className="font-medium text-gold-700">Bathrooms:</span> {property.bathrooms}</li>
-            <li><span className="font-medium text-gold-700">Garage:</span> {property.garage}</li>
-            <li><span className="font-medium text-gold-700">Special Rooms:</span> {property.features.join(', ')}</li>
+            {property.classification === 'home' ? (
+              <>
+                <li><span className="font-medium text-gold-700">Square Footage:</span> {property.squareFootage?.toLocaleString()} sq ft</li>
+                <li><span className="font-medium text-gold-700">Bedrooms:</span> {property.bedrooms}</li>
+                <li><span className="font-medium text-gold-700">Bathrooms:</span> {property.bathrooms}</li>
+                {property.garage && (
+                  <li><span className="font-medium text-gold-700">Garage:</span> {property.garage}</li>
+                )}
+              </>
+            ) : (
+              <>
+                {property.lotSize && (
+                  <li><span className="font-medium text-gold-700">Lot Size:</span> {property.lotSize}</li>
+                )}
+                <li><span className="font-medium text-gold-700">Zoning:</span> Residential</li>
+                <li><span className="font-medium text-gold-700">Ready for:</span> Construction</li>
+              </>
+            )}
+            <li><span className="font-medium text-gold-700">Features:</span> {property.features.join(', ')}</li>
             <li><span className="font-medium text-gold-700">Status:</span> {property.status}</li>
             <li><span className="font-medium text-gold-700">Completion:</span> {property.completionDate}</li>
           </ul>
         </div>
       </div>
 
-      {/* Amenities */}
-      <div>
-        <h3 className="text-xl font-semibold text-navy-900 mb-4">Home Amenities</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {property.amenities.map((amenity, index) => (
-            <div key={index} className="flex items-center space-x-2">
-              <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-primary-700">{amenity}</span>
-            </div>
-          ))}
+      {/* Amenities - Only show for homes, not land listings */}
+      {property.classification === 'home' && (
+        <div>
+          <h3 className="text-xl font-semibold text-navy-900 mb-4">Home Amenities</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {property.amenities.map((amenity, index) => (
+              <div key={index} className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-primary-700">{amenity}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Location */}
       <div>

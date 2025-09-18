@@ -8,11 +8,13 @@ interface Property {
   builder: string
   status: string
   completionDate: string
-  squareFootage: number
-  bedrooms: number
-  bathrooms: number
+  classification: 'home' | 'land'
+  squareFootage: number | null
+  bedrooms: number | null
+  bathrooms: number | null
   features: string[]
-  garage: string
+  garage: string | null
+  lotSize?: string
 }
 
 interface PropertyHeroProps {
@@ -44,24 +46,34 @@ export default function PropertyHero({ property }: PropertyHeroProps) {
           <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-6">
             ${property.price.toLocaleString()}
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">{property.squareFootage.toLocaleString()}</div>
-              <div className="text-sm md:text-base text-white">Square Feet</div>
+          {property.classification === 'home' ? (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-white">{property.squareFootage?.toLocaleString()}</div>
+                <div className="text-sm md:text-base text-white">Square Feet</div>
+              </div>
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-white">{property.bedrooms}</div>
+                <div className="text-sm md:text-base text-white">Bedrooms</div>
+              </div>
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-white">{property.bathrooms}</div>
+                <div className="text-sm md:text-base text-white">Bathrooms</div>
+              </div>
+              <div>
+                <div className="text-2xl md:text-3xl font-bold text-white">3</div>
+                <div className="text-sm md:text-base text-white">Car Garage</div>
+              </div>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">{property.bedrooms}</div>
-              <div className="text-sm md:text-base text-white">Bedrooms</div>
+          ) : (
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="text-2xl md:text-3xl font-bold text-white mb-2">Prime Building Lot</div>
+              {property.lotSize && (
+                <div className="text-lg md:text-xl text-gold-400 mb-2">{property.lotSize}</div>
+              )}
+              <div className="text-sm md:text-base text-white">Approved Plans Included</div>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">{property.bathrooms}</div>
-              <div className="text-sm md:text-base text-white">Bathrooms</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">3</div>
-              <div className="text-sm md:text-base text-white">Car Garage</div>
-            </div>
-          </div>
+          )}
           <div className="mt-8">
             <p className="text-lg text-white">
               <span className="font-semibold text-gold-400">Target Completion:</span> {property.completionDate}
