@@ -60,14 +60,14 @@ const properties = {
     price: 959000,
     builder: 'Custom Builder',
     status: 'Available - Build Ready',
-    completionDate: 'TBD',
+    completionDate: 'TBD - Build To Suit',
     classification: 'home' as const,
     squareFootage: 2732,
     bedrooms: 3,
     bathrooms: 3,
-    features: ['Study', 'Open Floor Plan'],
+    features: ['Study', 'Dining'],
     garage: '2 Car Garage',
-    description: 'Stunning Custom Home in Horseshoe Bay\nDiscover this beautifully designed 3-bedroom, 3-bathroom home with study, perfectly situated in the prestigious Horseshoe Bay community. This 2,732 square foot residence offers the perfect blend of modern comfort and Hill Country charm.\nThe thoughtfully designed floor plan features spacious living areas with an open concept design that flows seamlessly from room to room. The well-appointed kitchen serves as the heart of the home, ideal for both everyday living and entertaining guests.\nThe private master suite provides a peaceful retreat, while two additional bedrooms offer flexibility for family, guests, or home office needs. The dedicated study provides the perfect space for remote work or quiet reading.\nLocated in the sought-after Horseshoe Bay community, this home offers resort-style living with access to golf courses, marina, and Lake LBJ while maintaining the peaceful atmosphere that makes this area so desirable. With excellent amenities and beautiful Hill Country surroundings, this property represents an exceptional opportunity.',
+    description: 'Welcome to your future home—a beautifully designed 2,732 square-foot residence that’s all about personalization. This to-be-built property offers three spacious bedrooms, three baths, and a dedicated study—ideal for a home office or creative space. With an open floor plan that flows effortlessly, you’ll love the gourmet kitchen and the generous dining area perfect for gatherings. The primary retreat is a true sanctuary, and you’ll have a large covered patio and outdoor kitchen to enjoy outdoor living year-round. Plus, there’s a roomy three-car garage for all your storage needs. And the best part? You get to tailor the details to suit your lifestyle. Let’s make this home uniquely yours.',
     gallery: [
       "/listings/mountain-dew/gallery/820 Mountain Dew Final Render 2.png",
       "/listings/mountain-dew/gallery/20230317_171815.jpeg",
@@ -75,12 +75,12 @@ const properties = {
     ],
     amenities: [
       'Open Floor Plan',
-      'Modern Kitchen',
+      'Gourmet Kitchen',
       'Primary Retreat',
       'Study/Office',
-      'Hill Country Views',
-      '2-Car Garage',
-      'Custom Design'
+      'Large Dining Area',
+      'Covered Patio',
+      '3-Car Garage',
     ],
     location: {
       community: 'Horseshoe Bay',
@@ -105,7 +105,7 @@ const properties = {
     bathrooms: null,
     features: ['Approved Plans Included'],
     garage: null,
-    description: 'Prime 0.25-Acre Building Lot in Horseshoe Bay\nSecure this exceptional building opportunity in the prestigious Horseshoe Bay community. This prime 0.25-acre lot comes with approved plans for a stunning 3-bedroom, 3-bathroom home with study, totaling 2,732 square feet of thoughtfully designed living space.\nThe approved floor plan features spacious living areas with an open concept design that flows seamlessly from room to room. The well-appointed kitchen serves as the heart of the home, ideal for both everyday living and entertaining guests.\nThe private master suite provides a peaceful retreat, while two additional bedrooms offer flexibility for family, guests, or home office needs. The dedicated study provides the perfect space for remote work or quiet reading.\nLocated in the sought-after Horseshoe Bay community, this lot offers resort-style living with access to golf courses, marina, and Lake LBJ while maintaining the peaceful atmosphere that makes this area so desirable. With excellent amenities and beautiful Hill Country surroundings, this property represents an exceptional opportunity to build your dream home on a generous quarter-acre lot.\nPlans included - ready to start construction with your preferred builder.',
+    description: 'Discover your perfect canvas in the heart of Horsehoe Bay. This quarter-acre piece of land offers not just a space to build, but a breathtaking backdrop for your future home. With sweeping views that capture the essence of the Hill Country, this lot is ready for you to bring your vision to life. You have the freedom to design and build a home that truly suits your needs, whether you\'re dreaming of a cozy retreat or a spacious family getaway. Embrace the opportunity to create something unique on this prime piece of land, and let the stunning surroundings inspire your custom build. Ready to start your journey? This land is your first step toward the home you\'ve always wanted.',
     gallery: [
       "/listings/mountain-dew-land/20230317_171815.jpeg"
     ],
