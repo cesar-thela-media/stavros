@@ -23,7 +23,7 @@ const properties = [
     features: ['Study', 'Dining Room'],
     garage: '3 Car (2 + 1 Golf Cart)',
     description: 'Stunning spec home under construction by Silverado Signature Homes in the prestigious Horseshoe Bay community.',
-    image: '/listings/winchester/Inspiration Pic - 112 Winchester HSB.png'
+    image: '/listings/112-winchester/Inspiration Pic - 112 Winchester HSB.png'
   },
   {
     id: 'mountain-dew',

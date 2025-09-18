@@ -27,13 +27,13 @@ const properties = {
     garage: '3 Car (2 + 1 Golf Cart)',
     description: 'Refined Hill Country Living at Horseshoe Bay\nWelcome to 112 Winchester, a thoughtfully crafted single-story residence that blends timeless elegance with modern livability. The exterior showcases smooth stucco, a charcoal metal roof, and striking architectural lines that create lasting curb appeal. Inside, expansive living spaces are filled with natural light and designed for seamless flow - perfect for both entertaining and everyday comfort.\nAt the heart of the home, the great room features soaring ceilings and wide glass doors that open to the covered patio. The chef\'s kitchen boasts generous counter space, a large island with seating, an upgraded stainless appliance package, walk-in pantry, and direct connection to both formal and casual dining areas—ideal for gatherings of any size.\nThe private owner\'s suite offers a true retreat, a spa-inspired bath featuring a soaking tub, walk-in shower, dual vanities, and an oversized walk-in closet. Three secondary bedrooms provide flexibility for guests, hobbies, or home office needs, while a dedicated study serves as a private workspace, library, or creative studio.\nOutdoor living takes center stage with a spacious covered patio, full outdoor kitchen, and ample room to enjoy peaceful Horseshoe Bay evenings. An oversized two-car garage plus a third bay for a golf cart complete the home, offering both convenience and storage.\nPerfectly positioned in the heart of Horseshoe Bay, 112 Winchester combines refined design with functional spaces ideal as a full-time residence or a Hill Country retreat.',
     gallery: [
-      "/listings/winchester/gallery/IMG_3295.png",
-      "/listings/winchester/gallery/FINAL PLANS 112 Winchester[16]_Page_04.jpg",
-      "/listings/winchester/gallery/unknown.png",
-      "/listings/winchester/gallery/Image 6.jpeg",
-      "/listings/winchester/gallery/Image 5.jpeg",
-      "/listings/winchester/gallery/Image 4.jpeg",
-      "/listings/winchester/gallery/Image 3.jpeg"
+      "/listings/112-winchester/gallery/IMG_3295.png",
+      "/listings/112-winchester/gallery/FINAL PLANS 112 Winchester[16]_Page_04.jpg",
+      "/listings/112-winchester/gallery/unknown.png",
+      "/listings/112-winchester/gallery/Image 6.jpeg",
+      "/listings/112-winchester/gallery/Image 5.jpeg",
+      "/listings/112-winchester/gallery/Image 4.jpeg",
+      "/listings/112-winchester/gallery/Image 3.jpeg"
     ],
     amenities: [
       'Open Floor Plan',
@@ -128,9 +128,9 @@ const properties = {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export function generateStaticParams() {
@@ -139,8 +139,9 @@ export function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: PageProps) {
-  const property = properties[params.slug as keyof typeof properties]
+export async function generateMetadata({ params }: PageProps) {
+  const resolvedParams = await params
+  const property = properties[resolvedParams.slug as keyof typeof properties]
   
   if (!property) {
     return {
@@ -154,8 +155,9 @@ export function generateMetadata({ params }: PageProps) {
   }
 }
 
-export default function PropertyPage({ params }: PageProps) {
-  const property = properties[params.slug as keyof typeof properties]
+export default async function PropertyPage({ params }: PageProps) {
+  const resolvedParams = await params
+  const property = properties[resolvedParams.slug as keyof typeof properties]
 
   if (!property) {
     notFound()

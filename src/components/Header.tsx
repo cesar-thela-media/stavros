@@ -83,26 +83,29 @@ export default function Header() {
                 alt="Stavros Realty Team"
                 width={240}
                 height={80}
-                className="h-16 w-auto"
+                className="h-16 w-auto object-contain"
                 priority
+                quality={95}
               />
             </Link>
             <div className="flex items-center space-x-2">
               <Image
                 src="/assets/Portfolio Logo Black.png"
                 alt="APRE"
-                width={120}
-                height={40}
-                className="h-12 w-auto"
+                width={240}
+                height={80}
+                className="h-12 w-auto object-contain"
                 quality={95}
+                priority
               />
               <Image
                 src="/assets/KW-Luxury-Logo-Black.png"
                 alt="KW Luxury"
-                width={80}
-                height={30}
-                className="h-12 w-auto"
+                width={240}
+                height={80}
+                className="h-12 w-auto object-contain"
                 quality={95}
+                priority
               />
             </div>
           </div>

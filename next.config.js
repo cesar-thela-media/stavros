@@ -4,7 +4,13 @@ const nextConfig = {
     dirs: ['pages', 'utils', 'components', 'lib', 'src'],
   },
   images: {
-    domains: ['images.unsplash.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+    qualities: [75, 90, 95, 100],
   },
 }
 
