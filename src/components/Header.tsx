@@ -76,25 +76,25 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between py-4">
           {/* Logos Section */}
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="flex items-center">
+          <div className="flex items-center space-x-2 sm:space-x-4 max-w-[80%] sm:max-w-none">
+            <Link href="/" className="flex items-center flex-shrink">
               <Image
                 src="/assets/SRT Logo Dark.png"
                 alt="Stavros Realty Team"
                 width={240}
                 height={80}
-                className="h-16 w-auto object-contain"
+                className="h-10 sm:h-16 w-auto object-contain"
                 priority
                 quality={95}
               />
             </Link>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink min-w-0">
               <Image
                 src="/assets/Portfolio Logo Black.png"
                 alt="APRE"
                 width={240}
                 height={80}
-                className="h-12 w-auto object-contain"
+                className="h-8 sm:h-12 w-auto object-contain"
                 quality={95}
                 priority
               />
@@ -103,7 +103,7 @@ export default function Header() {
                 alt="KW Luxury"
                 width={240}
                 height={80}
-                className="h-12 w-auto object-contain"
+                className="h-8 sm:h-12 w-auto object-contain"
                 quality={95}
                 priority
               />
