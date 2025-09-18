@@ -5,12 +5,15 @@ import PropertyHero from '@/components/PropertyHero'
 import PropertyDetails from '@/components/PropertyDetails'
 import PropertyGallery from '@/components/PropertyGallery'
 import ContactForm from '@/components/ContactForm'
+import SimilarListings from '@/components/SimilarListings'
 import { getHeroImageWithFallback } from '@/utils/getHeroImage'
 
 // Property data - in a real app, this would come from a database or CMS
 const properties = {
   '112-winchester': {
     id: '112-winchester',
+    propertyId: 'PROP-001',
+    similarListings: ['PROP-002'], // Empty array = auto-show same zip code listings
     address: '112 Winchester',
     city: 'Horseshoe Bay',
     state: 'TX',
@@ -53,6 +56,8 @@ const properties = {
   },
   'mountain-dew': {
     id: 'mountain-dew',
+    propertyId: 'PROP-002',
+    similarListings: ['PROP-001', 'PROP-003'], // Manual selection - show mountain-dew-land
     address: '820 Mountain Dew',
     city: 'Horseshoe Bay',
     state: 'TX',
@@ -90,6 +95,8 @@ const properties = {
   },
   'mountain-dew-land': {
     id: 'mountain-dew-land',
+    propertyId: 'PROP-003',
+    similarListings: ['PROP-002', 'PROP-001'], // Manual selection - show mountain-dew home
     address: '820 Mountain Dew',
     city: 'Horseshoe Bay',
     state: 'TX',
@@ -180,6 +187,11 @@ export default async function PropertyPage({ params }: PageProps) {
             <div className="lg:col-span-1">
               <ContactForm property={property} />
             </div>
+          </div>
+          
+          {/* Similar Listings Section */}
+          <div className="mt-16">
+            <SimilarListings currentProperty={property} allProperties={properties} />
           </div>
         </div>
       </main>
