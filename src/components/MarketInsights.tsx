@@ -173,7 +173,7 @@ export default function MarketInsights() {
               Want Detailed Market Analysis?
             </h3>
             <p className="text-primary-800 mb-6 text-lg">
-              Get personalized market reports, neighborhood comparisons, and investment insights from cutting edge technology and Spero and his Team's years of expertise.
+              Gain personalized market reports, neighborhood comparisons, and investment insights—powered by cutting-edge technology and backed by Spero and his team's proven expertise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 

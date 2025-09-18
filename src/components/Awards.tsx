@@ -17,6 +17,12 @@ export default function Awards() {
     {
       category: "Professional Development",
       items: [
+        "TREC - Legal Updates I & II. 2024 / 2025",
+        "TREC - Real Estate Finance & Risk Reduction 2024 / 2025",
+        "TREC - Law of Agency & Law of Contracts 2024 / 2025",
+        "AA - Texas Real Estate Law 2024 / 2025",
+        "DSISD Certified Real Estate Specialist 2025",
+        "Selling Rural Land w/ Wildlife Management Tax Valuation 2025",
         "Shore Consulting - Sales Leadership Summit - 2020 / 2022",
         "Qualico - Real Estate Sales Leadership Development Program - 2019",
         "Shore Consulting - Real Estate Sales Leadership Academy - 2017",

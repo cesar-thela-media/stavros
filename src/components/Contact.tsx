@@ -54,7 +54,7 @@ export default function Contact() {
             Ready to Find Your Dream Home?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-300">
-            Contact our team of experts today and let us help you navigate the luxury real estate market in Central Texas.
+            Whether you're buying your first home or want to explore luxury custom homes, moving up, downsizing, or preparing to sell, Spero and his team are ready to guide you every step of the way. Connect today and turn your real estate goals into reality.
           </p>
         </div>
 

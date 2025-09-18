@@ -4,74 +4,86 @@ import { useState } from 'react'
 
 const testimonials = [
   {
+    name: "Ross & Aimee P.",
+    location: "",
+    text: "Spero was attentive to our needs and understood the details of the process to put all the pieces together to sell our home. We really appreciated Spero's ability to negotiate. He helped us to look at many perspectives and gave us confidence to land at our end result which was really good.",
+    rating: 5
+  },
+  {
+    name: "Darren & Jennifer S.",
+    location: "",
+    text: "We highly recommend hiring Spero and his team for any real estate purchase or sale. If you are looking for someone you can trust, who will be consistent with you, and really knows the market he is the Realtor for you. He was wonderful for us and I know he would be wonderful for you.",
+    rating: 5
+  },
+  {
     name: "Andy & Jill M.",
-    location: "Austin, TX",
+    location: "",
     text: "Spero is an extremely knowledgeable and experienced real estate professional in both new home construction and existing homes. He guided us through our selection and build process with remarkable responsiveness and saved us many headaches by sharing his years of experience. You can't go wrong with Spero on your side.",
     rating: 5
   },
   {
     name: "Drs. Chae & Monya T.",
-    location: "Austin, TX",
+    location: "",
     text: "We had an incredible experience working with Spero Stavros during the build of our dream home. We had heard that building a home is stressful, but in our case, it was a joy. Spero made himself available for questions and kept us in the loop during the process. He and the team were extremely helpful in navigating all of our pre-build design changes. He was knowledgeable, easy to work with, and is a really nice guy. We highly recommend him.",
     rating: 5
   },
   {
     name: "Rick & Laura N.",
-    location: "Austin, TX",
+    location: "",
     text: "We had a seamless and spectacular experience with Spero working for us. It was nothing short of over the top as he was always quick to respond and thoughtful about each aspect we were looking for and dreaming of. I would not hesitate to refer him to my family and friends to help in their transaction. Thanks again.",
     rating: 5
   },
   {
     name: "Peter & Lisa S.",
-    location: "Austin, TX",
+    location: "",
     text: "Experienced, Accessible, Responsive, Collaborative, and Flexible. My wife and I went through a custom build during COVID, needless to say, we were presented with several supply and labor challenges. As we reflect on our working experience during that time, the words above sum up how we would describe Spero; we highly recommend him to others. Despite the challenges unique to that time, Spero went above and beyond to ensure he minimized surprises throughout the process.",
     rating: 5
   },
   {
     name: "Will S.",
-    location: "Austin, TX",
+    location: "",
     text: "We purchased our new home from Spero in 2023 and we were pleased with our experience. Spero was low-key, helpful, and willing to patiently answer all of our questions regarding our purchase. Spero went far beyond our natural expectations to research all questions we had about the property. Spero is a true professional who is very personable and easy to work with. We would highly recommend Spero as a top-notch realtor who will get you the best possible results based upon your needs.",
     rating: 5
   },
   {
     name: "Michael & Jackie K.",
-    location: "Austin, TX",
+    location: "",
     text: "I was in the market for a new home and I knew I wouldn't be able to find what I wanted in a pre-build. So, I set out to find an upscale community in which to build. I was lucky enough to come into contact with Spero once I found interest in a beautiful gated community. He guided and helped me through the process of picking out a lot on which to build, the architectural design process, and every step in between from the beginning to inception.",
     rating: 5
   },
   {
     name: "Peggy R.",
-    location: "Austin, TX",
+    location: "",
     text: "Spero was always very responsive to all our requests, as well as being readily available. Even if he was busy with another client, he would get back to us as soon as he was done helping someone else. We also felt he was always very honest in his dealings with us, which I can't always say about everyone.",
     rating: 5
   },
   {
     name: "Aaron & Traci P.",
-    location: "Driftwood, TX",
+    location: "",
     text: "My husband, son, and I had the pleasure of working with Spero Stavros. He walked us through the entire process of building a home in The Ventana development in Driftwood Texas. He spent many hours with us during the entire process of choosing the best lot, the best layout of the home for our needs and explaining the multiple questions that we threw at him during the building period. My family found Spero Stavros to be a knowledgeable, honest and an organized person.",
     rating: 5
   },
   {
     name: "Roy E.",
-    location: "Custom Home Builder",
+    location: "",
     text: "In my experience as a custom home builder for over 45+ years, I was fortunate to have the privilege of collaborating with Spero Stavros and I cannot recommend his services highly enough. I have worked with many Realtors and sales professionals throughout my time as a builder and consider Spero as one of the best I've worked with. Our seamless partnership has been instrumental in the successful completion of numerous custom home projects thanks to his unparalleled expertise and unwavering commitment to excellence.",
     rating: 5
   },
   {
     name: "Rohit D.",
-    location: "Austin, TX",
+    location: "",
     text: "Spero was an absolute pleasure to work with. He was responsive, knowledgeable and upfront. It's always good to work with someone who does not beat around the bush and is concise and direct. Spero helped us with our home purchase and provided helpful guidance throughout the process which not only saved us money but also quite a bit of time. Thank you, Spero.",
     rating: 5
   },
   {
     name: "Dan & Dottie B.",
-    location: "Austin, TX",
+    location: "",
     text: "We had the pleasure of meeting Spero Stavros back in 2018 when we began looking for property and making plans to build a new home. Spero was working for the builder at the time, so he was involved in every step of the process with us. He is very knowledgeable about the real estate market, new home build process, and decisions that can affect resale. Spero Stavros is a man with integrity, which is sometimes hard to find in the real estate business.",
     rating: 5
   },
   {
     name: "Myra M. & Miha V.",
-    location: "Austin, TX",
+    location: "",
     text: "We worked with Spero on a new build and were very satisfied with the experience. He was incredibly responsive and always quick to address our concerns. Spero listened to our needs and never tried to upsell us on unnecessary upgrades. Throughout the process, we felt he was helping us find a home, not just a house. We highly recommend Spero to anyone looking for a reliable and responsive Realtor.",
     rating: 5
   }
@@ -102,7 +114,7 @@ export default function Testimonials() {
             Client Testimonials
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-600">
-            Hear what our clients have to say about their experience with Spero Stavros
+            Hear what our clients have to say about their experience with Spero and The Stavros Realty Team
           </p>
         </div>
 
@@ -138,7 +150,9 @@ export default function Testimonials() {
                     </blockquote>
                     <div className="border-t border-cream-200 pt-6 text-center">
                       <div className="font-semibold text-primary-900 text-xl">{testimonial.name}</div>
-                      <div className="text-primary-600 text-sm mt-1">{testimonial.location}</div>
+                      {testimonial.location && (
+                        <div className="text-primary-600 text-sm mt-1">{testimonial.location}</div>
+                      )}
                     </div>
                   </div>
                 </div>

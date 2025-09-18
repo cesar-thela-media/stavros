@@ -15,23 +15,69 @@ const properties = [
   },
   {
     id: 2,
-    title: "Hill Country Retreat",
-    location: "Dripping Springs",
-    price: "$1,650,000",
-    beds: 4,
-    baths: 3,
-    sqft: "3,800",
-    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2084&q=80"
+    title: "126 Lipizzan Lane",
+    location: "La Ventana",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_b8b2c71ae0a14b279356153cc4b254d2~mv2.jpeg/v1/fill/w_313,h_235,q_75,enc_avif,quality_auto/c604b9_b8b2c71ae0a14b279356153cc4b254d2~mv2.jpeg",
+    status: "Sold"
   },
   {
     id: 3,
-    title: "Downtown Penthouse",
-    location: "Downtown Austin",
-    price: "$3,200,000",
-    beds: 3,
-    baths: 3.5,
-    sqft: "2,900",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    title: "2109 Skyview Ridge Pass",
+    location: "Tavisio",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_8062a612658f4e3bb946ee8d4c56e8c9~mv2.jpeg/v1/fill/w_314,h_235,fp_0.39_0.43,q_75,enc_avif,quality_auto/c604b9_8062a612658f4e3bb946ee8d4c56e8c9~mv2.jpeg",
+    status: "Sold"
+  },
+  {
+    id: 4,
+    title: "144 Shady Hill Loop",
+    location: "Liberty Hill",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_4bab1966ed87425bbaa131b88538aab0~mv2.jpeg/v1/fill/w_313,h_235,q_75,enc_avif,quality_auto/c604b9_4bab1966ed87425bbaa131b88538aab0~mv2.jpeg",
+    status: "Sold"
+  },
+  {
+    id: 5,
+    title: "170 Lone Spur Lane",
+    location: "Driftwood",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_9ecbfb7d29b7488ab6bff74c81526880~mv2.jpeg/v1/fill/w_313,h_235,q_75,enc_avif,quality_auto/c604b9_9ecbfb7d29b7488ab6bff74c81526880~mv2.jpeg",
+    status: "Sold"
+  },
+  {
+    id: 6,
+    title: "213 Northcrest Drive",
+    location: "Liberty Hill",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_96a0af3d6f6942c09f5c59fdb970a4cd~mv2.jpeg/v1/fill/w_314,h_235,q_75,enc_avif,quality_auto/c604b9_96a0af3d6f6942c09f5c59fdb970a4cd~mv2.jpeg",
+    status: "Sold"
+  },
+  {
+    id: 7,
+    title: "1638 Trebled Waters",
+    location: "Driftwood",
+    price: "Sold",
+    beds: null,
+    baths: null,
+    sqft: null,
+    image: "https://static.wixstatic.com/media/c604b9_ebaceacae4ab4046bff5938145e5e2ba~mv2.jpeg/v1/fill/w_313,h_235,q_75,enc_avif,quality_auto/c604b9_ebaceacae4ab4046bff5938145e5e2ba~mv2.jpeg",
+    status: "Sold"
   }
 ]
 
@@ -43,9 +89,6 @@ export default function FeaturedProperties() {
           <h2 className="text-3xl font-bold tracking-tight text-black-900 sm:text-4xl font-heading">
             Featured Properties
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal-600">
-            Discover our handpicked selection of luxury properties in Central Texas&apos; most desirable locations.
-          </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -71,19 +114,27 @@ export default function FeaturedProperties() {
                   <span className="text-2xl font-bold text-champagne-600">{property.price}</span>
                 </div>
                 <p className="text-charcoal-600 mb-4">{property.location}</p>
-                <div className="flex items-center justify-between text-sm text-charcoal-500">
-                  <span>{property.beds} beds</span>
-                  <span>{property.baths} baths</span>
-                  <span>{property.sqft} sq ft</span>
-                </div>
-                {property.link ? (
-                  <Link href={property.link} className="mt-4 w-full btn-secondary block text-center">
-                    View Details
-                  </Link>
+                {property.status === "Sold" ? (
+                  <div className="text-sm text-charcoal-500 mb-4">
+                    <span className="text-champagne-600 font-semibold">Represented Builder</span>
+                  </div>
                 ) : (
-                  <button className="mt-4 w-full btn-secondary">
-                    View Details
-                  </button>
+                  <div className="flex items-center justify-between text-sm text-charcoal-500 mb-4">
+                    <span>{property.beds} beds</span>
+                    <span>{property.baths} baths</span>
+                    <span>{property.sqft} sq ft</span>
+                  </div>
+                )}
+                {property.status !== "Sold" && (
+                  property.link ? (
+                    <Link href={property.link} className="mt-4 w-full btn-secondary block text-center">
+                      View Details
+                    </Link>
+                  ) : (
+                    <button className="mt-4 w-full btn-secondary">
+                      View Details
+                    </button>
+                  )
                 )}
               </div>
             </div>
