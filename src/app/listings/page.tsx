@@ -17,7 +17,7 @@ const properties = [
     status: 'Available - Under Construction',
     completionDate: 'February 2026',
     classification: 'home' as const,
-    squareFootage: 2726,
+    squareFootage: 2842,
     bedrooms: 4,
     bathrooms: 3,
     features: ['Study', 'Dining Room'],
@@ -64,7 +64,7 @@ const properties = [
     features: ['Approved Plans Included'],
     garage: null,
     description: 'Prime 0.25-acre building lot in Horseshoe Bay with approved plans for a stunning 3-bedroom, 3-bathroom home with study.',
-    image: '/listings/mountain-dew-land/20230317_171815.jpeg'
+    image: '/listings/mountain-dew-land/Mountain Dew View Image.jpg'
   }
 ]
 

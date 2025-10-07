@@ -116,7 +116,7 @@ const properties = {
     garage: null,
     description: 'Discover your perfect canvas in the heart of Horsehoe Bay. This quarter-acre piece of land offers not just a space to build, but a breathtaking backdrop for your future home. With sweeping views that capture the essence of the Hill Country, this lot is ready for you to bring your vision to life. You have the freedom to design and build a home that truly suits your needs, whether you\'re dreaming of a cozy retreat or a spacious family getaway. Embrace the opportunity to create something unique on this prime piece of land, and let the stunning surroundings inspire your custom build. Ready to start your journey? This land is your first step toward the home you\'ve always wanted.',
     gallery: [
-      "/listings/mountain-dew-land/20230317_171815.jpeg"
+      "/listings/mountain-dew-land/Mountain Dew View Image.jpg"
     ],
     amenities: [
       'Approved Plans Included',

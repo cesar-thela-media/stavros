@@ -9,7 +9,7 @@ const properties = [
     classification: "home" as const,
     beds: 4,
     baths: 3,
-    sqft: "2,726",
+    sqft: "2,842",
     image: "/listings/112-winchester/IMG_3295.png",
     link: "/listings/112-winchester",
     status: "Available - Under Construction"
@@ -37,7 +37,7 @@ const properties = [
     beds: null,
     baths: null,
     sqft: null,
-    image: "/listings/mountain-dew-land/20230317_171815.jpeg",
+    image: "/listings/mountain-dew-land/Mountain Dew View Image.jpg",
     link: "/listings/mountain-dew-land",
     status: "Available - Land Only"
   },
