@@ -23,7 +23,7 @@ const properties = {
     status: 'Available - Under Construction',
     completionDate: 'February 2026',
     classification: 'home' as const,
-    squareFootage: 2726,
+    squareFootage: 2842,
     bedrooms: 4,
     bathrooms: 3,
     features: ['Study', 'Dining Room'],
@@ -36,7 +36,9 @@ const properties = {
       "/listings/112-winchester/gallery/Image 6.jpeg",
       "/listings/112-winchester/gallery/Image 5.jpeg",
       "/listings/112-winchester/gallery/Image 4.jpeg",
-      "/listings/112-winchester/gallery/Image 3.jpeg"
+      "/listings/112-winchester/gallery/Image 3.jpeg",
+      "/listings/112-winchester/gallery/Image 7.png",
+      "/listings/112-winchester/gallery/Image 8.jpeg"
     ],
     amenities: [
       'Open Floor Plan',
@@ -75,7 +77,7 @@ const properties = {
     description: 'Welcome to your future home—a beautifully designed 2,732 square-foot residence that’s all about personalization. This to-be-built property offers three spacious bedrooms, three baths, and a dedicated study—ideal for a home office or creative space. With an open floor plan that flows effortlessly, you’ll love the gourmet kitchen and the generous dining area perfect for gatherings. The primary retreat is a true sanctuary, and you’ll have a large covered patio and outdoor kitchen to enjoy outdoor living year-round. Plus, there’s a roomy three-car garage for all your storage needs. And the best part? You get to tailor the details to suit your lifestyle. Let’s make this home uniquely yours.',
     gallery: [
       "/listings/mountain-dew/gallery/820 Mountain Dew Final Render 2.png",
-      "/listings/mountain-dew/gallery/20230317_171815.jpeg",
+      "/listings/mountain-dew/gallery/Mountain Dew View Image.jpg",
       "/listings/mountain-dew/gallery/mountain-dew-wiring.png"
     ],
     amenities: [
