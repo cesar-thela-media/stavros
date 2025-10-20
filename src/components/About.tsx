@@ -23,7 +23,7 @@ export default function About() {
                 href="#contact" 
                 className="btn-primary"
               >
-                Schedule a Free Consultation
+                Schedule a Consultation
               </a>
               <a 
                 href="https://stavrosrealtyteam.kw.com/agent" 

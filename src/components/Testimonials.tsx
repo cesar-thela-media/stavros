@@ -206,7 +206,7 @@ export default function Testimonials() {
             href="#contact"
             className="btn-primary"
           >
-            Schedule a Free Consultation
+            Schedule a Consultation
           </a>
         </div>
       </div>

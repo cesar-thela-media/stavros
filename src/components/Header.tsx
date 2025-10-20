@@ -65,7 +65,7 @@ export default function Header() {
                 href="#contact"
                 className="text-sm px-4 py-1.5 bg-champagne-600 text-white rounded-full hover:bg-champagne-700 transition-colors duration-300 font-medium"
               >
-                Schedule a Free Consultation
+                Schedule a Consultation
               </Link>
             </div>
           </div>
@@ -194,7 +194,7 @@ export default function Header() {
                   className="block text-center rounded-md px-3 py-2 text-base font-medium bg-champagne-600 text-white hover:bg-champagne-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Schedule a Free Consultation
+                  Schedule a Consultation
                 </Link>
               </div>
             </div>

@@ -53,7 +53,7 @@ export default function Hero() {
               View Properties
             </a>
             <Link href="#contact" className="btn-secondary border-white text-white hover:bg-white hover:text-primary-900">
-              Schedule a Free Consultation
+              Schedule a Consultation
             </Link>
           </div>
         </div>

@@ -69,7 +69,7 @@ export default function Services() {
                 href="tel:+15126619404" 
                 className="btn-primary"
               >
-                Call Spero and His Team for a Free Consultation
+                Call Spero and His Team for a Consultation
               </a>
               <a 
                 href="#kw-tools"

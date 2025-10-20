@@ -147,7 +147,7 @@ export default function KWTools() {
                 href="#contact"
                 className="btn-secondary"
               >
-                Schedule a Free Consultation
+                Schedule a Consultation
               </a>
             </div>
           </div>
