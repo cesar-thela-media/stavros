@@ -53,6 +53,7 @@ export default function Footer() {
               <li><a href="https://stavrosrealtyteam.kw.com/home-valuation" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Home Valuation</a></li>
               <li><a href="https://stavrosrealtyteam.kw.com/mortgage-calculator" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Mortgage Calculator</a></li>
               <li><a href="https://a.nhb.app/u/spero-stavros" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">New Construction Search Tool</a></li>
+              <li><a href="https://stavrosrealtyteam.kw.com/blog" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Blog</a></li>
             </ul>
           </div>
 
@@ -71,7 +72,7 @@ export default function Footer() {
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-2">Legal Information</h3>
               <ul className="space-y-1 text-primary-300 text-sm">
-                <li><a href="https://drive.google.com/file/d/1EIg3ZTb05Zpxol6pS33WvdCsRHqy0v_x/view" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Texas Real Estate Commission Information About Brokerage Services</a></li>
+                <li><a href="https://drive.google.com/file/d/1FnWmtLQrNLmvymBOKMTbS42-mHRqBkjS/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Texas Real Estate Commission Information About Brokerage Services</a></li>
                 <li><a href="https://drive.google.com/file/d/1Z3YfI4EvvRZbDByQyqL7glXzTaS3h2Cy/view" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Texas Real Estate Commission Consumer Protection Notice</a></li>
               </ul>
             </div>

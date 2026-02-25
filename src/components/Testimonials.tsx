@@ -4,6 +4,12 @@ import { useState } from 'react'
 
 const testimonials = [
   {
+    name: "Mark H.",
+    location: "",
+    text: "Spero possesses a wealth of expertise with a career spanning over 26 years in the luxury and overall real estate market where he represented individual sellers, multiple home builders, resale buyers, as well as new construction and custom home buyers. Spero is the perfect Realtor to assist you on either side of any real estate transaction. The valuable and extensive knowledge he offers blended with his experience as the VP of Business Operations and partial owner of a mortgage company provides a nuanced understanding of the distinct needs and aspirations of all parties to any transaction. Spero has honed his skills in crafting tailored solutions that bring visions, dreams, and real estate goals to life.",
+    rating: 5
+  },
+  {
     name: "Ross & Aimee P.",
     location: "",
     text: "Spero was attentive to our needs and understood the details of the process to put all the pieces together to sell our home. We really appreciated Spero's ability to negotiate. He helped us to look at many perspectives and gave us confidence to land at our end result which was really good.",

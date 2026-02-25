@@ -32,13 +32,17 @@ const properties = {
     gallery: [
       "/listings/112-winchester/gallery/IMG_3295.png",
       "/listings/112-winchester/gallery/FINAL PLANS 112 Winchester[16]_Page_04.jpg",
-      "/listings/112-winchester/gallery/unknown.png",
       "/listings/112-winchester/gallery/Image 6.jpeg",
       "/listings/112-winchester/gallery/Image 5.jpeg",
       "/listings/112-winchester/gallery/Image 4.jpeg",
       "/listings/112-winchester/gallery/Image 3.jpeg",
       "/listings/112-winchester/gallery/Image 7.png",
-      "/listings/112-winchester/gallery/Image 8.jpeg"
+      "/listings/112-winchester/gallery/Image 8.jpeg",
+      "/listings/112-winchester/gallery/unknown.png",
+      "/listings/112-winchester/gallery/materials-kitchen-pantry.jpg",
+      "/listings/112-winchester/gallery/materials-bathrooms.jpg",
+      "/listings/112-winchester/gallery/materials-mudroom-utility.jpg",
+      "/listings/112-winchester/gallery/materials-appliances.jpg"
     ],
     amenities: [
       'Open Floor Plan',

@@ -10,6 +10,7 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Search Properties', href: 'https://stavrosrealtyteam.kw.com/search', external: true },
+    { name: 'Blog', href: 'https://stavrosrealtyteam.kw.com/blog', external: true },
     { name: 'About', href: '/#about' },
     { name: 'Services', href: '/#expertise' },
     { name: 'Contact', href: '/#contact' },
