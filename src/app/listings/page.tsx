@@ -23,7 +23,7 @@ const properties = [
     features: ['Study', 'Dining Room'],
     garage: '3 Car (2 + 1 Golf Cart)',
     description: 'Stunning spec home under construction by Silverado Signature Homes in the prestigious Horseshoe Bay community.',
-    image: '/listings/112-winchester/Inspiration Pic - 112 Winchester HSB.png'
+    image: '/listings/112-winchester/Winchester-IMG.jpeg'
   },
   {
     id: 'mountain-dew',
@@ -44,6 +44,26 @@ const properties = [
     garage: '2 Car Garage',
     description: 'Stunning custom home in Horseshoe Bay featuring 3 bedrooms, 3 bathrooms, and a study in 2,732 square feet of thoughtfully designed living space.',
     image: '/listings/mountain-dew/820 Mountain Dew Final Render 2.png'
+  },
+  {
+    id: '1405-grafton',
+    slug: '1405-grafton',
+    address: '1405 Grafton Ln',
+    city: 'Pflugerville',
+    state: 'TX',
+    zipCode: '78660',
+    price: 474900,
+    builder: 'Resale',
+    status: 'Active',
+    completionDate: '2002',
+    classification: 'home' as const,
+    squareFootage: 2392,
+    bedrooms: 4,
+    bathrooms: 3,
+    features: ['Study/Office', '2 Living Areas'],
+    garage: '2 Car',
+    description: 'Stunning fully upgraded home on a cul-de-sac in Springbrook Glen with quartz countertops, premium finishes, and a private backyard with no rear neighbors.',
+    image: '/listings/1405-grafton/hero.jpeg'
   },
   {
     id: 'mountain-dew-land',
@@ -158,7 +178,7 @@ export default function ListingsPage() {
                   </p>
                   
                   <div className="space-y-2 text-sm">
-                    <p><span className="font-medium text-gold-700">Completion:</span> <span className="text-primary-700">{property.completionDate}</span></p>
+                    <p><span className="font-medium text-gold-700">{property.builder === 'Resale' ? 'Year Built:' : 'Completion:'}</span> <span className="text-primary-700">{property.completionDate}</span></p>
                   </div>
                   
                   <div className="mt-6">

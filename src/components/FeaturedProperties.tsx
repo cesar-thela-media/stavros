@@ -10,7 +10,7 @@ const properties = [
     beds: 4,
     baths: 3,
     sqft: "2,842",
-    image: "/listings/112-winchester/IMG_3295.png",
+    image: "/listings/112-winchester/Winchester-IMG.jpeg",
     link: "/listings/112-winchester",
     status: "Available - Under Construction"
   },
@@ -29,6 +29,19 @@ const properties = [
   },
   {
     id: 3,
+    title: "1405 Grafton Ln",
+    location: "Pflugerville, TX",
+    price: "$474,900",
+    classification: "home" as const,
+    beds: 4,
+    baths: 3,
+    sqft: "2,392",
+    image: "/listings/1405-grafton/hero.jpeg",
+    link: "/listings/1405-grafton",
+    status: "Active"
+  },
+  {
+    id: 4,
     title: "820 Mountain Dew",
     location: "Horseshoe Bay, TX",
     price: "$58,900",
@@ -42,7 +55,7 @@ const properties = [
     status: "Available - Land Only"
   },
   {
-    id: 4,
+    id: 5,
     title: "126 Lipizzan Lane",
     location: "La Ventana",
     price: "Sold",
@@ -53,7 +66,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 5,
+    id: 6,
     title: "2109 Skyview Ridge Pass",
     location: "Tavisio",
     price: "Sold",
@@ -64,7 +77,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 6,
+    id: 7,
     title: "144 Shady Hill Loop",
     location: "Liberty Hill",
     price: "Sold",
@@ -75,7 +88,7 @@ const properties = [
     status: "Sold"
   },
   {
-    id: 7,
+    id: 8,
     title: "170 Lone Spur Lane",
     location: "Driftwood",
     price: "Sold",

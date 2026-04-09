@@ -66,7 +66,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             )}
             <li><span className="font-medium text-gold-700">Features:</span> {property.features.join(', ')}</li>
             <li><span className="font-medium text-gold-700">Status:</span> {property.status}</li>
-            <li><span className="font-medium text-gold-700">Completion:</span> {property.completionDate}</li>
+            <li><span className="font-medium text-gold-700">{property.builder === 'Resale' ? 'Year Built:' : 'Completion:'}</span> {property.completionDate}</li>
           </ul>
         </div>
       </div>
@@ -118,55 +118,61 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
         </div>
       </div>
 
-      {/* About Horseshoe Bay */}
-      <div>
-        <h3 className="text-xl font-semibold text-navy-900 mb-4">About Horseshoe Bay</h3>
-        <div className="luxury-card">
-          <p className="text-primary-700 leading-relaxed">
-            Horseshoe Bay is a desirable place to live, offering a resort-style lifestyle with access to Lake LBJ for water sports, world-class golf courses, and various amenities like a full-service spa and dining just minutes away at the Horseshoe Bay Resort. It is conveniently located near major cities like Austin and San Antonio for big-city amenities, though it is primarily a luxury, resort-focused community.
-          </p>
-        </div>
-      </div>
-
-      {/* Resources */}
-      <div>
-        <h3 className="text-xl font-semibold text-navy-900 mb-4">Resources</h3>
-        <div className="luxury-card">
-          <div className="flex items-center space-x-3">
-            <svg className="w-6 h-6 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            <a 
-              href="https://www.clubhsbresort.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gold-700 hover:text-gold-800 font-medium underline"
-            >
-              Horseshoe Bay Club & Resort
-            </a>
+      {/* About Horseshoe Bay - only for HSB properties */}
+      {property.city === 'Horseshoe Bay' && (
+        <div>
+          <h3 className="text-xl font-semibold text-navy-900 mb-4">About Horseshoe Bay</h3>
+          <div className="luxury-card">
+            <p className="text-primary-700 leading-relaxed">
+              Horseshoe Bay is a desirable place to live, offering a resort-style lifestyle with access to Lake LBJ for water sports, world-class golf courses, and various amenities like a full-service spa and dining just minutes away at the Horseshoe Bay Resort. It is conveniently located near major cities like Austin and San Antonio for big-city amenities, though it is primarily a luxury, resort-focused community.
+            </p>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Resources - only for HSB properties */}
+      {property.city === 'Horseshoe Bay' && (
+        <div>
+          <h3 className="text-xl font-semibold text-navy-900 mb-4">Resources</h3>
+          <div className="luxury-card">
+            <div className="flex items-center space-x-3">
+              <svg className="w-6 h-6 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              <a
+                href="https://www.clubhsbresort.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-700 hover:text-gold-800 font-medium underline"
+              >
+                Horseshoe Bay Club & Resort
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Looking for Something Different */}
       <div>
         <h3 className="text-xl font-semibold text-navy-900 mb-4">Looking for Something Different?</h3>
         <div className="luxury-card text-center">
           <p className="text-primary-700 mb-4">
-            If this home doesn't match your needs, click here to explore other custom home options—or give us a call to discuss building one tailored just for you.
+            {property.builder === 'Resale'
+              ? "If this home doesn't match your needs, click here to explore other listings—or give us a call to discuss what you're looking for."
+              : "If this home doesn't match your needs, click here to explore other custom home options—or give us a call to discuss building one tailored just for you."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/listings" 
+            <a
+              href="/listings"
               className="btn-secondary"
             >
               Browse Other Homes
             </a>
-            <a 
-              href="tel:+15126619404" 
+            <a
+              href="tel:+15126619404"
               className="btn-primary"
             >
-              Call to Discuss Custom Build
+              {property.builder === 'Resale' ? 'Call to Discuss' : 'Call to Discuss Custom Build'}
             </a>
           </div>
         </div>

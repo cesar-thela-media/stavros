@@ -61,10 +61,12 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
                 <div className="text-2xl md:text-3xl font-bold text-white">{property.bathrooms}</div>
                 <div className="text-sm md:text-base text-white">Bathrooms</div>
               </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-white">3</div>
-                <div className="text-sm md:text-base text-white">Car Garage</div>
-              </div>
+              {property.garage && (
+                <div>
+                  <div className="text-2xl md:text-3xl font-bold text-white">{property.garage}</div>
+                  <div className="text-sm md:text-base text-white">Garage</div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="max-w-2xl mx-auto text-center">
@@ -77,7 +79,7 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
           )}
           <div className="mt-8">
             <p className="text-lg text-white">
-              <span className="font-semibold text-gold-400">Target Completion:</span> {property.completionDate}
+              <span className="font-semibold text-gold-400">{property.builder === 'Resale' ? 'Year Built:' : 'Target Completion:'}</span> {property.completionDate}
             </p>
           </div>
         </div>
