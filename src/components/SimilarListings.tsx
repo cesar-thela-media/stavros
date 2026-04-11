@@ -1,34 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-
-interface Property {
-  id: string
-  propertyId: string
-  similarListings: string[]
-  address: string
-  city: string
-  state: string
-  zipCode: string
-  price: number
-  builder: string
-  status: string
-  completionDate: string
-  classification: 'home' | 'land'
-  squareFootage: number | null
-  lotSize?: string
-  bedrooms: number | null
-  bathrooms: number | null
-  features: string[]
-  garage: string | null
-  description: string
-  gallery: string[]
-  amenities: string[]
-  location: {
-    community: string
-    schools: string
-    nearby: string[]
-  }
-}
+import { Property } from '@/data/properties'
 
 interface SimilarListingsProps {
   currentProperty: Property
@@ -44,7 +16,7 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
     // Use manual selection - find properties by their propertyId
     isManualSelection = true
     similarProperties = Object.values(allProperties).filter(
-      property => currentProperty.similarListings.includes(property.propertyId)
+      property => property.propertyId && currentProperty.similarListings!.includes(property.propertyId)
     )
   } else {
     // Fallback to automatic zip code matching, excluding current property
@@ -90,7 +62,7 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
             {/* Property Image */}
             <div className="relative aspect-video">
               <Image
-                src={property.gallery[0] || '/assets/hero4.png'}
+                src={property.gallery?.[0] || property.image || '/assets/hero4.png'}
                 alt={`${property.address} in ${property.city}`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -111,7 +83,7 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
                 {property.city}, {property.state} {property.zipCode}
               </p>
               <p className="text-2xl font-bold text-gold-700 mb-4">
-                ${property.price.toLocaleString()}
+                ${property.price?.toLocaleString()}
               </p>
               
               {property.classification === 'home' ? (

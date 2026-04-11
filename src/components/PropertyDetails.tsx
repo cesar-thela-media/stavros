@@ -1,29 +1,4 @@
-interface Property {
-  id: string
-  address: string
-  city: string
-  state: string
-  zipCode: string
-  price: number
-  builder: string
-  status: string
-  completionDate: string
-  classification: 'home' | 'land'
-  squareFootage: number | null
-  bedrooms: number | null
-  bathrooms: number | null
-  features: string[]
-  garage: string | null
-  description: string
-  gallery: string[]
-  amenities: string[]
-  location: {
-    community: string
-    schools: string
-    nearby: string[]
-  }
-  lotSize?: string
-}
+import { Property } from '@/data/properties'
 
 interface PropertyDetailsProps {
   property: Property
@@ -76,7 +51,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
         <div>
           <h3 className="text-xl font-semibold text-navy-900 mb-4">Home Amenities</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {property.amenities.map((amenity, index) => (
+            {property.amenities?.map((amenity, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -96,14 +71,14 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             <div>
               <h4 className="font-semibold text-navy-900 mb-2">Community Information</h4>
               <ul className="space-y-2 text-primary-700">
-                <li><span className="font-medium text-gold-700">Community:</span> {property.location.community}</li>
-                <li><span className="font-medium text-gold-700">School District:</span> {property.location.schools}</li>
+                <li><span className="font-medium text-gold-700">Community:</span> {property.location?.community}</li>
+                <li><span className="font-medium text-gold-700">School District:</span> {property.location?.schools}</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-navy-900 mb-2">Nearby Attractions</h4>
               <ul className="space-y-1 text-primary-700">
-                {property.location.nearby.map((item, index) => (
+                {property.location?.nearby.map((item, index) => (
                   <li key={index} className="flex items-center space-x-2">
                     <svg className="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

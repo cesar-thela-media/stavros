@@ -3,13 +3,7 @@
 import { useState, useEffect } from 'react'
 import { handleFormSubmission, FormSubmissionResponse } from '@/utils/formSubmission'
 
-interface Property {
-  id: string
-  address: string
-  city: string
-  state: string
-  zipCode: string
-}
+import { Property } from '@/data/properties'
 
 interface ContactFormProps {
   property: Property

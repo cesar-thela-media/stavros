@@ -2,91 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { getActiveProperties } from '@/data/properties'
 
-// Property data - in a real app, this would come from a database or CMS
-const properties = [
-  {
-    id: '112-winchester',
-    slug: '112-winchester',
-    address: '112 Winchester',
-    city: 'Horseshoe Bay',
-    state: 'TX',
-    zipCode: '78657',
-    price: 925000,
-    builder: 'Silverado Signature Homes',
-    status: 'Available - Under Construction',
-    completionDate: 'February 2026',
-    classification: 'home' as const,
-    squareFootage: 2842,
-    bedrooms: 4,
-    bathrooms: 3,
-    features: ['Study', 'Dining Room'],
-    garage: '3 Car (2 + 1 Golf Cart)',
-    description: 'Stunning spec home under construction by Silverado Signature Homes in the prestigious Horseshoe Bay community.',
-    image: '/listings/112-winchester/Winchester-IMG.jpeg'
-  },
-  {
-    id: 'mountain-dew',
-    slug: 'mountain-dew',
-    address: '820 Mountain Dew',
-    city: 'Horseshoe Bay',
-    state: 'TX',
-    zipCode: '78620',
-    price: 959000,
-    builder: 'Custom Builder',
-    status: 'Available - Build Ready',
-    completionDate: 'TBD',
-    classification: 'home' as const,
-    squareFootage: 2732,
-    bedrooms: 3,
-    bathrooms: 3,
-    features: ['Study', 'Open Floor Plan'],
-    garage: '2 Car Garage',
-    description: 'Stunning custom home in Horseshoe Bay featuring 3 bedrooms, 3 bathrooms, and a study in 2,732 square feet of thoughtfully designed living space.',
-    image: '/listings/mountain-dew/820 Mountain Dew Final Render 2.png'
-  },
-  {
-    id: '1405-grafton',
-    slug: '1405-grafton',
-    address: '1405 Grafton Ln',
-    city: 'Pflugerville',
-    state: 'TX',
-    zipCode: '78660',
-    price: 474900,
-    builder: 'Resale',
-    status: 'Active',
-    completionDate: '2002',
-    classification: 'home' as const,
-    squareFootage: 2392,
-    bedrooms: 4,
-    bathrooms: 3,
-    features: ['Study/Office', '2 Living Areas'],
-    garage: '2 Car',
-    description: 'Stunning fully upgraded home on a cul-de-sac in Springbrook Glen with quartz countertops, premium finishes, and a private backyard with no rear neighbors.',
-    image: '/listings/1405-grafton/hero.jpeg'
-  },
-  {
-    id: 'mountain-dew-land',
-    slug: 'mountain-dew-land',
-    address: '820 Mountain Dew',
-    city: 'Horseshoe Bay',
-    state: 'TX',
-    zipCode: '78620',
-    price: 58900,
-    builder: 'Custom Builder',
-    status: 'Available - Land Only',
-    completionDate: 'Ready for Construction',
-    classification: 'land' as const,
-    lotSize: '0.25 acres',
-    squareFootage: null,
-    bedrooms: null,
-    bathrooms: null,
-    features: ['Approved Plans Included'],
-    garage: null,
-    description: 'Prime 0.25-acre building lot in Horseshoe Bay with approved plans for a stunning 3-bedroom, 3-bathroom home with study.',
-    image: '/listings/mountain-dew-land/Mountain Dew View Image.jpg'
-  }
-]
+const properties = getActiveProperties()
 
 export const metadata = {
   title: 'Property Listings - Stavros Realty',
@@ -148,7 +66,7 @@ export default function ListingsPage() {
                     {property.city}, {property.state} {property.zipCode}
                   </p>
                   <p className="text-2xl font-bold text-gold-700 mb-4">
-                    ${property.price.toLocaleString()}
+                    ${property.price?.toLocaleString()}
                   </p>
                   
                   {property.classification === 'home' ? (

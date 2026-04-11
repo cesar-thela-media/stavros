@@ -1,21 +1,4 @@
-interface Property {
-  id: string
-  address: string
-  city: string
-  state: string
-  zipCode: string
-  price: number
-  builder: string
-  status: string
-  completionDate: string
-  classification: 'home' | 'land'
-  squareFootage: number | null
-  bedrooms: number | null
-  bathrooms: number | null
-  features: string[]
-  garage: string | null
-  lotSize?: string
-}
+import { Property } from '@/data/properties'
 
 interface PropertyHeroProps {
   property: Property
@@ -45,7 +28,7 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
             {property.city}, {property.state} {property.zipCode}
           </p>
           <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-6">
-            ${property.price.toLocaleString()}
+            ${property.price?.toLocaleString()}
           </div>
           {property.classification === 'home' ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
