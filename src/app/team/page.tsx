@@ -53,20 +53,6 @@ export default function TeamPage() {
     <>
       <Header />
       <main>
-        {/* Page Header */}
-        <section className="section-padding bg-white pb-0">
-          <div className="mx-auto max-w-7xl">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold tracking-tight text-primary-900 sm:text-5xl font-serif">
-                Our Team
-              </h1>
-              <p className="mt-4 text-lg text-charcoal-600 max-w-2xl mx-auto">
-                Experience, integrity, and excellence — meet the professionals behind Stavros Realty Team.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Spero - Full Bio Section */}
         <section className="section-padding bg-white">
           <div className="mx-auto max-w-7xl">
