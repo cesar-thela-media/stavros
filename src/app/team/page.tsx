@@ -120,7 +120,7 @@ export default function TeamPage() {
           <section className="section-padding bg-misty-50">
             <div className="mx-auto max-w-7xl">
               <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif text-center mb-10">
-                Our Agents
+                Our Team
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {teamMembers.map((member) => (
