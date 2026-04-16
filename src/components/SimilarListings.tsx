@@ -19,13 +19,18 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
       property => property.propertyId && currentProperty.similarListings!.includes(property.propertyId)
     )
   } else {
-    // Fallback to automatic zip code matching, excluding current property
+    // Fallback to automatic matching: same city + price within ±50%, else same state
     isManualSelection = false
-    similarProperties = Object.values(allProperties).filter(
-      property => 
-        property.zipCode === currentProperty.zipCode && 
-        property.id !== currentProperty.id
-    )
+    const priceMatch = (p: Property) => {
+      if (!currentProperty.price || !p.price) return true
+      const ratio = p.price / currentProperty.price
+      return ratio >= 0.5 && ratio <= 1.5
+    }
+    similarProperties = Object.values(allProperties).filter(p =>
+      p.id !== currentProperty.id &&
+      (p.city === currentProperty.city || p.state === currentProperty.state) &&
+      priceMatch(p)
+    ).slice(0, 4)
   }
 
   // Don't render if no similar properties found
@@ -34,9 +39,9 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
   }
 
   // Determine heading text based on selection type
-  const headingText = isManualSelection 
-    ? "Similar Listings" 
-    : `Other Listings in ${currentProperty.zipCode}`
+  const headingText = isManualSelection
+    ? "Similar Listings"
+    : `Other Listings in ${currentProperty.city}`
 
   return (
     <div className="bg-cream-50 rounded-2xl p-8 border border-cream-200">
@@ -52,12 +57,16 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Mobile: horizontal scroll. Desktop: 2-column grid */}
+      <div
+        className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible md:pb-0"
+        style={{ scrollbarWidth: 'none' }}
+      >
         {similarProperties.map((property) => (
           <Link
             key={property.id}
-            href={`/listings/${property.id}`}
-            className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            href={`/listings/${property.slug}`}
+            className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex-none w-80 snap-start md:w-auto md:flex-auto"
           >
             {/* Property Image */}
             <div className="relative aspect-video">

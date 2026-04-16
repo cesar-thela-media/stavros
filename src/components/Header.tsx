@@ -1,11 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+
+  // Close menu when user clicks outside the header
+  useEffect(() => {
+    if (!isMenuOpen) return
+    function handleClickOutside(event: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isMenuOpen])
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -18,7 +31,7 @@ export default function Header() {
   ]
 
   return (
-    <header className="bg-white/70 backdrop-blur-lg shadow-xl sticky top-0 z-50 border-b border-misty-200/70">
+    <header ref={headerRef} className="bg-white/70 backdrop-blur-lg shadow-xl sticky top-0 z-50 border-b border-misty-200/70">
       {/* Top Bar - Social Icons and CTA Button */}
       <div className="border-b border-misty-200/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -165,8 +178,13 @@ export default function Header() {
             </svg>
           </button>
         </div>
-        {isMenuOpen && (
-          <div className="xl:hidden border-t border-misty-200/50">
+        {/* Mobile menu — animated slide-down via max-height transition */}
+        <div
+          className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="border-t border-misty-200/50">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((link) => (
                 link.external ? (
@@ -191,7 +209,51 @@ export default function Header() {
                   </Link>
                 )
               ))}
-              <div className="pt-3 mt-2 border-t border-misty-200/50">
+
+              {/* L4 — Click-to-call and click-to-email bar */}
+              <div className="pt-3 mt-2 border-t border-misty-200/50 grid grid-cols-2 gap-2">
+                <a
+                  href="tel:+15126619404"
+                  className="flex flex-col items-center justify-center gap-1.5 rounded-md px-3 py-3 bg-charcoal-50 hover:bg-charcoal-100 active:bg-charcoal-200 transition-colors border border-misty-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {/* Phone icon */}
+                  <svg
+                    className="h-6 w-6 text-champagne-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                  <span className="text-xs font-semibold text-charcoal-800 tracking-wide uppercase">Call Now</span>
+                  <span className="text-xs text-charcoal-500">(512) 661-9404</span>
+                </a>
+                <a
+                  href="mailto:spero@stavrosrealty.com"
+                  className="flex flex-col items-center justify-center gap-1.5 rounded-md px-3 py-3 bg-charcoal-50 hover:bg-charcoal-100 active:bg-charcoal-200 transition-colors border border-misty-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {/* Envelope icon */}
+                  <svg
+                    className="h-6 w-6 text-champagne-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  <span className="text-xs font-semibold text-charcoal-800 tracking-wide uppercase">Email Us</span>
+                  <span className="text-xs text-charcoal-500 truncate w-full text-center">spero@stavrosrealty.com</span>
+                </a>
+              </div>
+
+              {/* Schedule CTA */}
+              <div className="pt-2">
                 <Link
                   href="#contact"
                   className="block text-center rounded-md px-3 py-2 text-base font-medium bg-champagne-600 text-white hover:bg-champagne-700"
@@ -200,6 +262,7 @@ export default function Header() {
                   Schedule a Consultation
                 </Link>
               </div>
+
               {/* Social icons in mobile menu */}
               <div className="flex items-center justify-center space-x-4 pt-3 pb-1">
                 <a href="https://linktr.ee/SperoStavros" target="_blank" rel="noopener noreferrer" className="text-charcoal-600 hover:text-champagne-600 transition-colors">
@@ -235,7 +298,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   )

@@ -15,7 +15,7 @@ export default function FeaturedProperties() {
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {properties.map((property) => (
-            <div key={property.id} className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div key={property.id} className="group relative bg-white rounded-lg shadow-lg overflow-hidden border border-transparent hover:border-champagne-500 hover:ring-2 hover:ring-champagne-300/50 hover:shadow-xl transition-all duration-300">
               <div className="aspect-w-16 aspect-h-12 overflow-hidden relative">
                 <img
                   src={property.image}
@@ -33,7 +33,7 @@ export default function FeaturedProperties() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-black-900 font-heading">{property.address}</h3>
-                  <span className="text-2xl font-bold text-champagne-600">
+                  <span className="text-2xl font-bold text-champagne-600 border-l-4 border-champagne-400 pl-2">
                     {property.price ? `$${property.price.toLocaleString()}` : 'Sold'}
                   </span>
                 </div>

@@ -36,7 +36,7 @@ export interface FormSubmissionResponse {
  * Submits form data to the webhook endpoint
  */
 export async function submitFormToWebhook(formData: FormData): Promise<FormSubmissionResponse> {
-  const webhookUrl = 'https://n8n.voyagetechnology.com/webhook/0661cf2a-d0d1-4ea5-ad2f-6059956a5574'
+  const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL || 'https://n8n.voyagetechnology.com/webhook/0661cf2a-d0d1-4ea5-ad2f-6059956a5574'
   
   // Ensure we're on the client side
   if (typeof window === 'undefined') {

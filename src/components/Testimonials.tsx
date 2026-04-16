@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const testimonials = [
   {
@@ -95,21 +95,79 @@ const testimonials = [
   }
 ]
 
+const DESKTOP_PAGE_SIZE = 3
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center justify-center mb-6">
+      {[...Array(rating)].map((_, i) => (
+        <svg
+          key={i}
+          className="h-6 w-6 text-gold-500"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  )
+}
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const checkBreakpoint = () => setIsDesktop(window.innerWidth >= 1024)
+    checkBreakpoint()
+    window.addEventListener('resize', checkBreakpoint)
+    return () => window.removeEventListener('resize', checkBreakpoint)
+  }, [])
+
+  const pageSize = isDesktop ? DESKTOP_PAGE_SIZE : 1
+  const totalPages = Math.ceil(testimonials.length / pageSize)
+
+  // Normalize currentIndex to always be a valid single-item index.
+  // When switching breakpoints, clamp so we don't go out of bounds.
+  const safeIndex = Math.min(currentIndex, testimonials.length - 1)
+
+  // For desktop: snap to page boundaries
+  const desktopPageIndex = Math.floor(safeIndex / DESKTOP_PAGE_SIZE)
+  const displayStartIndex = isDesktop ? desktopPageIndex * DESKTOP_PAGE_SIZE : safeIndex
+
+  // Slice with wrapping for desktop (in case near the end)
+  const visibleTestimonials = isDesktop
+    ? testimonials.slice(displayStartIndex, displayStartIndex + DESKTOP_PAGE_SIZE)
+    : [testimonials[displayStartIndex]]
+
+  const dotCount = isDesktop
+    ? Math.ceil(testimonials.length / DESKTOP_PAGE_SIZE)
+    : testimonials.length
+
+  const activeDot = isDesktop ? desktopPageIndex : displayStartIndex
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1
-    setCurrentIndex(newIndex)
+    if (isDesktop) {
+      const prevPage = desktopPageIndex === 0 ? Math.ceil(testimonials.length / DESKTOP_PAGE_SIZE) - 1 : desktopPageIndex - 1
+      setCurrentIndex(prevPage * DESKTOP_PAGE_SIZE)
+    } else {
+      setCurrentIndex(safeIndex === 0 ? testimonials.length - 1 : safeIndex - 1)
+    }
   }
 
   const goToNext = () => {
-    const newIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
-    setCurrentIndex(newIndex)
+    if (isDesktop) {
+      const totalDesktopPages = Math.ceil(testimonials.length / DESKTOP_PAGE_SIZE)
+      const nextPage = desktopPageIndex === totalDesktopPages - 1 ? 0 : desktopPageIndex + 1
+      setCurrentIndex(nextPage * DESKTOP_PAGE_SIZE)
+    } else {
+      setCurrentIndex(safeIndex === testimonials.length - 1 ? 0 : safeIndex + 1)
+    }
   }
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index)
+  const goToDot = (dotIndex: number) => {
+    setCurrentIndex(isDesktop ? dotIndex * DESKTOP_PAGE_SIZE : dotIndex)
   }
 
   return (
@@ -124,46 +182,27 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Slider */}
+        {/* Testimonials Grid / Slider */}
         <div className="mt-12 relative">
-          <div className="overflow-hidden rounded-xl">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ 
-                transform: `translateX(-${currentIndex * 100}%)`
-              }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={index} 
-                  className="w-full flex-shrink-0"
-                >
-                  <div className="bg-white rounded-xl p-8 shadow-lg border border-cream-200 mx-4">
-                    <div className="flex items-center justify-center mb-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="h-6 w-6 text-gold-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <blockquote className="text-primary-700 text-lg leading-relaxed mb-8 text-center max-w-4xl mx-auto">
-                      "{testimonial.text}"
-                    </blockquote>
-                    <div className="border-t border-cream-200 pt-6 text-center">
-                      <div className="font-semibold text-primary-900 text-xl">{testimonial.name}</div>
-                      {testimonial.location && (
-                        <div className="text-primary-600 text-sm mt-1">{testimonial.location}</div>
-                      )}
-                    </div>
-                  </div>
+          {/* Cards */}
+          <div className={`grid gap-6 ${isDesktop ? 'lg:grid-cols-3' : 'grid-cols-1'}`}>
+            {visibleTestimonials.map((testimonial, idx) => (
+              <div
+                key={`${displayStartIndex}-${idx}`}
+                className="bg-white border-l-4 border-champagne-500 rounded-xl p-8 shadow-md"
+              >
+                <StarRating rating={testimonial.rating} />
+                <blockquote className="text-primary-700 text-base leading-relaxed mb-8 text-center">
+                  "{testimonial.text}"
+                </blockquote>
+                <div className="border-t border-cream-200 pt-6 text-center">
+                  <div className="font-semibold text-primary-900 text-lg">{testimonial.name}</div>
+                  {testimonial.location && (
+                    <div className="text-primary-600 text-sm mt-1">{testimonial.location}</div>
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           {/* Navigation Arrows */}
@@ -187,28 +226,27 @@ export default function Testimonials() {
           </button>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-4 space-x-3">
-            {testimonials.map((_, index) => (
+          <div className="flex justify-center mt-8 space-x-3">
+            {Array.from({ length: dotCount }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToSlide(index)}
+                onClick={() => goToDot(index)}
                 className={`w-4 h-4 rounded-full transition-all duration-300 border-2 ${
-                  index === currentIndex 
-                    ? 'bg-champagne-600 border-champagne-600 shadow-md' 
+                  index === activeDot
+                    ? 'bg-champagne-600 border-champagne-600 shadow-md'
                     : 'bg-white border-cream-400 hover:border-champagne-500 hover:bg-cream-100'
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Go to page ${index + 1}`}
               />
             ))}
           </div>
-
         </div>
 
         <div className="mt-12 text-center">
           <p className="text-primary-600 mb-6">
             Ready to share your own success story with Spero Stavros?
           </p>
-          <a 
+          <a
             href="#contact"
             className="btn-primary"
           >
@@ -219,4 +257,3 @@ export default function Testimonials() {
     </section>
   )
 }
-

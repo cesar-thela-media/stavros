@@ -9,30 +9,101 @@ interface ContactFormProps {
   property: Property
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+type TouchedFields = {
+  firstName: boolean
+  lastName: boolean
+  email: boolean
+  message: boolean
+}
+
+type ErrorFields = {
+  firstName: string
+  lastName: string
+  email: string
+  message: string
+}
+
 export default function ContactForm({ property }: ContactFormProps) {
+  const defaultMessage = `I'm interested in learning more about ${property.address} in ${property.city}, ${property.state}.`
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    message: `I'm interested in learning more about ${property.address} in ${property.city}, ${property.state}.`
+    message: defaultMessage,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState('')
+  const [submitError, setSubmitError] = useState('')
+  const [submitSuccess, setSubmitSuccess] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+
+  const [touched, setTouched] = useState<TouchedFields>({
+    firstName: false,
+    lastName: false,
+    email: false,
+    message: false,
+  })
+
+  const [errors, setErrors] = useState<ErrorFields>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  })
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
+  const validateField = (name: keyof ErrorFields, value: string): string => {
+    switch (name) {
+      case 'firstName':
+        return value.trim() ? '' : 'First name is required.'
+      case 'lastName':
+        return value.trim() ? '' : 'Last name is required.'
+      case 'email':
+        if (!value.trim()) return 'Email address is required.'
+        if (!EMAIL_REGEX.test(value.trim())) return 'Please enter a valid email address.'
+        return ''
+      case 'message':
+        return value.trim() ? '' : 'Message is required.'
+      default:
+        return ''
+    }
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    if (!(name in touched)) return
+    const fieldName = name as keyof ErrorFields
+    setTouched((prev) => ({ ...prev, [fieldName]: true }))
+    setErrors((prev) => ({ ...prev, [fieldName]: validateField(fieldName, value) }))
+  }
+
+  const validateAll = (): boolean => {
+    const newErrors: ErrorFields = {
+      firstName: validateField('firstName', formData.firstName),
+      lastName: validateField('lastName', formData.lastName),
+      email: validateField('email', formData.email),
+      message: validateField('message', formData.message),
+    }
+    setErrors(newErrors)
+    setTouched({ firstName: true, lastName: true, email: true, message: true })
+    return Object.values(newErrors).every((err) => err === '')
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
-    // Only proceed if component is mounted (client-side)
+
     if (!isMounted) return
-    
+
+    if (!validateAll()) return
+
     setIsSubmitting(true)
-    setSubmitMessage('')
+    setSubmitError('')
 
     try {
       const response: FormSubmissionResponse = await handleFormSubmission(
@@ -49,24 +120,24 @@ export default function ContactForm({ property }: ContactFormProps) {
       )
 
       if (response.success) {
-        setSubmitMessage('Thank you for your interest! Spero will contact you soon.')
-        // Reset form safely
+        setSubmitSuccess(true)
         setFormData({
           firstName: '',
           lastName: '',
           email: '',
           phone: '',
-          message: `I'm interested in learning more about ${property.address} in ${property.city}, ${property.state}.`
+          message: defaultMessage,
         })
-        // Also reset the actual form element if it exists
+        setTouched({ firstName: false, lastName: false, email: false, message: false })
+        setErrors({ firstName: '', lastName: '', email: '', message: '' })
         if (e.currentTarget) {
           e.currentTarget.reset()
         }
       } else {
-        setSubmitMessage(response.message + (response.error ? ` (${response.error})` : ''))
+        setSubmitError(response.message + (response.error ? ` (${response.error})` : ''))
       }
     } catch (error) {
-      setSubmitMessage('An unexpected error occurred. Please try again.')
+      setSubmitError('An unexpected error occurred. Please try again.')
       console.error('Form submission error:', error)
     } finally {
       setIsSubmitting(false)
@@ -76,8 +147,22 @@ export default function ContactForm({ property }: ContactFormProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
+  }
+
+  const handleSendAnother = () => {
+    setSubmitSuccess(false)
+    setSubmitError('')
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: defaultMessage,
+    })
+    setTouched({ firstName: false, lastName: false, email: false, message: false })
+    setErrors({ firstName: '', lastName: '', email: '', message: '' })
   }
 
   return (
@@ -95,99 +180,144 @@ export default function ContactForm({ property }: ContactFormProps) {
           <p className="text-primary-600">Get more information about this property</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {submitSuccess ? (
+          <div className="flex flex-col items-center justify-center text-center py-10 px-4">
+            {/* Gold checkmark icon */}
+            <div className="mb-5">
+              <svg
+                className="w-16 h-16 text-gold-500"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1.5} className="opacity-25" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 12.5l3.5 3.5 6.5-7"
+                />
+              </svg>
+            </div>
+
+            <h3 className="text-2xl font-bold text-navy-900 font-serif mb-3">
+              Thank You!
+            </h3>
+            <p className="text-primary-600 text-base mb-8 max-w-xs">
+              Spero will be in touch with you shortly.
+            </p>
+            <button
+              onClick={handleSendAnother}
+              className="px-6 py-3 border border-gold-500 text-gold-700 rounded-md text-sm font-medium tracking-wide hover:bg-gold-50 transition-colors duration-200"
+            >
+              Send Another Message
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-navy-700 mb-1">
+                  First Name *
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+                />
+                {touched.firstName && errors.firstName && (
+                  <span className="text-red-500 text-xs mt-1 block">{errors.firstName}</span>
+                )}
+              </div>
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-navy-700 mb-1">
+                  Last Name *
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+                />
+                {touched.lastName && errors.lastName && (
+                  <span className="text-red-500 text-xs mt-1 block">{errors.lastName}</span>
+                )}
+              </div>
+            </div>
+
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-navy-700 mb-1">
-                First Name *
+              <label htmlFor="email" className="block text-sm font-medium text-navy-700 mb-1">
+                Email Address *
               </label>
               <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                required
-                value={formData.firstName}
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+              />
+              {touched.email && errors.email && (
+                <span className="text-red-500 text-xs mt-1 block">{errors.email}</span>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-navy-700 mb-1">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
               />
             </div>
+
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-navy-700 mb-1">
-                Last Name *
+              <label htmlFor="message" className="block text-sm font-medium text-navy-700 mb-1">
+                Message
               </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                required
-                value={formData.lastName}
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                value={formData.message}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
+                onBlur={handleBlur}
+                className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent resize-none bg-cream-50"
               />
+              {touched.message && errors.message && (
+                <span className="text-red-500 text-xs mt-1 block">{errors.message}</span>
+              )}
             </div>
-          </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-navy-700 mb-1">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
-            />
-          </div>
+            <button
+              type="submit"
+              disabled={isSubmitting || !isMounted}
+              className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {!isMounted ? 'Loading...' : isSubmitting ? 'Submitting...' : 'Request Information'}
+            </button>
 
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-navy-700 mb-1">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-cream-50"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-navy-700 mb-1">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-cream-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent resize-none bg-cream-50"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting || !isMounted}
-            className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {!isMounted ? 'Loading...' : isSubmitting ? 'Submitting...' : 'Request Information'}
-          </button>
-          
-          {submitMessage && (
-            <div className={`mt-4 p-3 rounded-md text-sm ${
-              submitMessage.includes('Thank you') 
-                ? 'bg-green-100 text-green-800 border border-green-200' 
-                : 'bg-red-100 text-red-800 border border-red-200'
-            }`}>
-              {submitMessage}
-            </div>
-          )}
-        </form>
+            {submitError && (
+              <div className="mt-4 p-3 rounded-md text-sm bg-red-100 text-red-800 border border-red-200">
+                {submitError}
+              </div>
+            )}
+          </form>
+        )}
 
         <div className="mt-6 pt-6 border-t border-cream-300">
           <div className="text-center">
@@ -199,7 +329,7 @@ export default function ContactForm({ property }: ContactFormProps) {
                 Call Now
               </a>
             </p>
-            
+
             {/* Social Media Links */}
             <div className="mt-4 flex justify-center space-x-4">
               <a href="https://linktr.ee/SperoStavros" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-gold-600 transition-colors">
