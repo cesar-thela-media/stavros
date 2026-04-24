@@ -7,14 +7,21 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
               Meet Spero Stavros
             </h2>
-            <p className="mt-6 text-lg text-primary-600 max-w-3xl">
-              <strong>Experience • Integrity • Excellence</strong> - Spero brings over 26 years of award-winning experience in real estate, representing luxury, custom home buyers, sellers, and builders at any price point. As a top-producing Keller Williams agent, Spero combines unmatched market knowledge with his unique background as VP of Business Operations and partial owner of a mortgage company, providing invaluable insights that save clients time, stress, and money. Backed by Keller Williams' cutting-edge technology, comprehensive training, and global network of 170,000+ agents, Spero delivers world-class service with local expertise in Central Texas markets.
+            <p className="mt-6 text-lg text-primary-600">
+              <strong>Experience • Integrity • Excellence</strong> - Spero brings over 26 years of award-winning experience in real estate, representing luxury, custom home buyers, sellers, and builders at any price point.
             </p>
+            <p className="mt-4 text-lg text-primary-600">
+              As a top-producing Keller Williams agent, Spero combines unmatched market knowledge with his unique background as VP of Business Operations and partial owner of a mortgage company, providing invaluable insights that save clients time, stress, and money.
+            </p>
+            <p className="mt-4 text-lg text-primary-600">
+              Backed by Keller Williams' cutting-edge technology, comprehensive training, and global network of 170,000+ agents, Spero delivers world-class service with local expertise in Central Texas markets.
+            </p>
+            
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-nowrap gap-3">
               <a 
                 href="#contact" 
-                className="btn-primary"
+                className="btn-primary shrink-0 whitespace-nowrap px-6 text-center"
               >
                 Schedule a Consultation
               </a>
@@ -22,13 +29,13 @@ export default function About() {
                 href="https://stavrosrealtyteam.kw.com/agent" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
               >
                 View Full Profile
               </a>
               <a
                 href="/team"
-                className="btn-secondary whitespace-nowrap"
+                className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
               >
                 Meet Our Team
               </a>

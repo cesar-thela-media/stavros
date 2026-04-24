@@ -37,11 +37,6 @@ const teamMembers: TeamMember[] = [
     photo: '/team/Hanelanie.png',
   },
   {
-    name: 'Kimberly De La Pena',
-    title: 'Social Media Marketing Assistant',
-    photo: '/team/kimberly.jpeg',
-  },
-  {
     name: 'Jordan Fredrick',
     title: 'Marketing Coordinator, APRE',
     photo: '/team/jordan.jpeg',
@@ -71,10 +66,10 @@ export default function TeamPage() {
                   Backed by Keller Williams&apos; cutting-edge technology, comprehensive training, and global network of 170,000+ agents, Spero delivers world-class service with local expertise in Central Texas markets.
                 </p>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <div className="mt-8 flex flex-col sm:flex-row sm:flex-nowrap gap-3">
                   <a
                     href="#contact"
-                    className="btn-primary"
+                    className="btn-primary shrink-0 whitespace-nowrap px-6 text-center"
                   >
                     Schedule a Consultation
                   </a>
@@ -82,9 +77,15 @@ export default function TeamPage() {
                     href="https://stavrosrealtyteam.kw.com/agent"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-secondary"
+                    className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
                   >
                     View Full Profile
+                  </a>
+                  <a
+                    href="/team"
+                    className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
+                  >
+                    Meet Our Team
                   </a>
                 </div>
               </div>
