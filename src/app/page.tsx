@@ -11,7 +11,6 @@ import Awards from '@/components/Awards'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import ValuationCTA from '@/components/ValuationCTA'
-import LeadCaptureBanner from '@/components/LeadCaptureBanner'
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
       </main>
       <ValuationCTA />
       <Footer />
-      <LeadCaptureBanner />
     </>
   )
 }

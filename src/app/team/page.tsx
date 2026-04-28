@@ -48,12 +48,54 @@ export default function TeamPage() {
     <>
       <Header />
       <main>
-        {/* Spero - Full Bio Section */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary-950 via-primary-900 to-black-950 text-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.22),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_32%)]"></div>
+          <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-champagne-300">
+                Our Team
+              </p>
+              <h1 className="mt-5 text-4xl font-bold tracking-tight font-serif sm:text-5xl lg:text-6xl">
+                Meet the Stavros Realty Team
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-primary-100">
+                A relationship-driven team built to guide buyers, sellers, and investors with local expertise, responsive communication, and coordinated support at every stage of the process.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Member Cards */}
+        {teamMembers.length > 0 && (
+          <section id="team-roster" className="section-padding bg-misty-50">
+            <div className="mx-auto max-w-7xl">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
+                  Our Team
+                </h2>
+                <p className="mt-4 text-base leading-7 text-primary-600 sm:text-lg">
+                  Meet the professionals behind Stavros Realty Team, from licensed agents to operations and marketing support.
+                </p>
+              </div>
+
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {teamMembers.map((member) => (
+                  <TeamCard key={member.name} member={member} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Spero - Featured Section */}
         <section className="section-padding bg-white">
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
+              <div className="order-2 lg:order-1">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-champagne-600">
+                  Team Leadership
+                </p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif">
                   Meet Spero Stavros
                 </h2>
                 <p className="mt-6 text-lg text-primary-600">
@@ -68,7 +110,7 @@ export default function TeamPage() {
 
                 <div className="mt-8 flex flex-col sm:flex-row sm:flex-nowrap gap-3">
                   <a
-                    href="#contact"
+                    href="/#contact"
                     className="btn-primary shrink-0 whitespace-nowrap px-6 text-center"
                   >
                     Schedule a Consultation
@@ -81,16 +123,10 @@ export default function TeamPage() {
                   >
                     View Full Profile
                   </a>
-                  <a
-                    href="/team"
-                    className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
-                  >
-                    Meet Our Team
-                  </a>
                 </div>
               </div>
 
-              <div className="relative">
+              <div className="relative order-1 lg:order-2">
                 <img
                   src="/assets/SSTAVROS.jpg"
                   alt="Spero Stavros - REALTOR®"
@@ -101,22 +137,6 @@ export default function TeamPage() {
             </div>
           </div>
         </section>
-
-        {/* Team Member Cards */}
-        {teamMembers.length > 0 && (
-          <section className="section-padding bg-misty-50">
-            <div className="mx-auto max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tight text-primary-900 sm:text-4xl font-serif text-center mb-10">
-                Our Team
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {teamMembers.map((member) => (
-                  <TeamCard key={member.name} member={member} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
       </main>
       <Footer />
     </>
