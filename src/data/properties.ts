@@ -147,7 +147,7 @@ const properties: Property[] = [
     zipCode: '78660',
     price: 474900,
     builder: 'Resale',
-    status: 'Active',
+    status: 'Pending',
     completionDate: '2002',
     classification: 'home',
     squareFootage: 2392,

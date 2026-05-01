@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Property } from '@/data/properties'
 
-type StatusFilter = 'all' | 'available' | 'sold' | 'under-construction'
+type StatusFilter = 'all' | 'available' | 'sold' | 'under-construction' | 'pending'
 type BedsFilter = 'any' | '2+' | '3+' | '4+'
 type BathsFilter = 'any' | '2+' | '3+'
 type SortOrder = 'default' | 'price-asc' | 'price-desc'
@@ -19,6 +19,7 @@ const statusLabels: Record<StatusFilter, string> = {
   available: 'Available',
   sold: 'Sold',
   'under-construction': 'Under Construction',
+  pending: 'Pending',
 }
 
 const bedsLabels: Record<BedsFilter, string> = {
@@ -103,6 +104,7 @@ export default function ListingsGrid({ properties }: ListingsGridProps) {
         if (statusFilter === 'available') return s.includes('available') && !s.includes('under construction')
         if (statusFilter === 'sold') return s.includes('sold')
         if (statusFilter === 'under-construction') return s.includes('under construction') || s.includes('under-construction')
+        if (statusFilter === 'pending') return s.includes('pending') || s.includes('under contract')
         return true
       })
     }
