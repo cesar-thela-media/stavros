@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getFeaturedProperties } from '@/data/properties'
+import PropertyImageBadges from './PropertyImageBadges'
 
 const properties = getFeaturedProperties()
 
@@ -22,6 +23,7 @@ export default function FeaturedProperties() {
                   alt={property.address}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <PropertyImageBadges ribbonText={property.imageRibbonText} />
                 {property.status && (
                   <div className="absolute top-4 left-4">
                     <span className="inline-block bg-champagne-500 text-black-900 px-3 py-1 rounded-full text-sm font-semibold">

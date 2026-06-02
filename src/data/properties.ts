@@ -19,6 +19,7 @@ export interface Property {
   description: string
   image: string
   featured: boolean
+  imageRibbonText?: string
   // Detail page fields
   propertyId?: string
   similarListings?: string[]
@@ -147,7 +148,7 @@ const properties: Property[] = [
     zipCode: '78660',
     price: 474900,
     builder: 'Resale',
-    status: 'Pending',
+    status: 'Closed',
     completionDate: '2002',
     classification: 'home',
     squareFootage: 2392,
@@ -158,6 +159,7 @@ const properties: Property[] = [
     description: 'Nestled on a cul-de-sac, this stunning home feels like walking through a model. The fully upgraded kitchen boasts quartz countertops, an integrated sink, premium faucet and fixtures, a striking counter-to-ceiling backsplash behind the luxury stainless vent hood, top tier stainless appliances with a gas cooktop and pantry. The main level showcases vinyl wood plank flooring throughout, accented by crown molding, recessed lighting, and whole home custom paint. The home office/bonus room includes beautiful functional built in\'s. The large primary retreat is a true sanctuary, with an en-suite bath offering a freestanding soaking tub, designer tile flooring, a frameless glass shower enclosure, shiplap vanity wall, custom mirrors & fixtures, plus a barn door. Upstairs, a second living/bonus area adds flexibility for living/relaxation options. The garage, with epoxy flooring and insulated steel doors, offers bonus space beyond just parking for exercise, hobbies, and ample storage. Outside, the large 0.248-acre lot offers a private backyard with no rear neighbors, pergola, rear patio & deck plus a playscape and garden area ensuring outdoor enjoyment for parents and kids alike. Maybe add a future pool? Located in family-friendly Springbrook Glen, near parks, trails, and Lake Pflugerville, plus top Pflugerville ISD schools and nearby shopping (Costco 7Min and 15Min to the Domain) Perfect for suburban comfort and convenience. Easy access to SH-45. A new roof (2021) dual stage AC added (2020) plus the water heater replaced in 2023. Your move-in ready dream home awaits!',
     image: '/listings/1405-grafton/hero.jpeg',
     featured: true,
+    imageRibbonText: 'Under Contract in 15 Days',
     gallery: [
       "/listings/1405-grafton/gallery/1-1405-Grafton-Ln---001.jpeg",
       "/listings/1405-grafton/gallery/4-1405-Grafton-Ln---023.jpeg",

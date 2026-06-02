@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Property } from '@/data/properties'
+import PropertyImageBadges from './PropertyImageBadges'
 
 type StatusFilter = 'all' | 'available' | 'sold' | 'under-construction' | 'pending'
 type BedsFilter = 'any' | '2+' | '3+' | '4+'
@@ -253,6 +254,7 @@ export default function ListingsGrid({ properties }: ListingsGridProps) {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <PropertyImageBadges ribbonText={property.imageRibbonText} />
                   <div className="absolute top-4 left-4">
                     <span className="inline-block bg-gold-500 text-navy-900 px-3 py-1 rounded-full text-sm font-semibold">
                       {property.status}
