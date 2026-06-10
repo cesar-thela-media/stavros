@@ -14,6 +14,20 @@ const quickTools = [
     textColor: "text-champagne-600"
   },
   {
+    title: "Get a Better Mortgage Rate",
+    description: "Access exclusive rates ~0.50% lower than the national average in Texas — no credit check, takes 30 seconds",
+    url: "https://partners.ralo.com/spero-stavros",
+    buttonText: "Get Personalized Rate",
+    icon: (
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    gradient: "from-charcoal-600 to-charcoal-700",
+    bgColor: "bg-misty-100",
+    textColor: "text-champagne-700"
+  },
+  {
     title: "Calculate Your Mortgage",
     description: "Estimate monthly payments, interest rates, and find the perfect loan for your budget",
     url: "https://stavrosrealtyteam.kw.com/mortgage-calculator",
@@ -42,8 +56,9 @@ export default function QuickTools() {
           </p>
         </div>
 
+        {/* Top row: Home Value + Ralo */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {quickTools.map((tool, index) => (
+          {quickTools.slice(0, 2).map((tool, index) => (
             <div 
               key={index}
               className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-misty-300/50`}
@@ -79,6 +94,50 @@ export default function QuickTools() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom row: Mortgage Calculator centered */}
+        <div className="mt-8 flex justify-center">
+          <div className="w-full lg:w-1/2">
+            {(() => {
+              const tool = quickTools[2];
+              return (
+                <div 
+                  className={`${tool.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-misty-300/50`}
+                >
+                  <div className="flex items-start space-x-6">
+                    <div className={`${tool.textColor} flex-shrink-0`}>
+                      {tool.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className={`text-2xl font-bold ${tool.textColor} mb-3`}>
+                        {tool.title}
+                      </h3>
+                      <p className="text-charcoal-700 mb-6 text-lg leading-relaxed">
+                        {tool.description}
+                      </p>
+                      <a
+                        href={tool.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r ${tool.gradient} rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 group`}
+                      >
+                        {tool.buttonText}
+                        <svg 
+                          className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
         </div>
 
         {/* Additional CTA Section */}

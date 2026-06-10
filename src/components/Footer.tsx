@@ -54,6 +54,7 @@ export default function Footer() {
               <li><a href="https://stavrosrealtyteam.kw.com/mortgage-calculator" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Mortgage Calculator</a></li>
               <li><a href="https://a.nhb.app/u/spero-stavros" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">New Construction Search Tool</a></li>
               <li><a href="https://stavrosrealtyteam.kw.com/blog" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="https://partners.ralo.com/spero-stavros" target="_blank" rel="noopener noreferrer" className="text-primary-300 hover:text-white transition-colors">Ralo Mortgage Partner</a></li>
             </ul>
           </div>
 

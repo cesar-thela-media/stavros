@@ -32,6 +32,17 @@ const kwTools = [
     ),
     color: " text-forest-600"
   },
+  {
+    title: "Ralo Mortgage Partner",
+    description: "Get rates ~0.50% lower than the national average — free rate check in 30 seconds, no credit check required",
+    url: "https://partners.ralo.com/spero-stavros",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    color: "bg-black-100 text-black-700"
+  },
   // {
   //   title: "Market Reports",
   //   description: "Access detailed market analysis and neighborhood statistics",
@@ -131,7 +142,7 @@ export default function KWTools() {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-navy-100 to-gold-100 rounded-xl p-8 border border-cream-300">
+          <div className="bg-gradient-to-r from-navy-100 to-gold-00 rounded-xl p-8 border border-cream-300">
             <h3 className="text-xl font-semibold text-navy-900 mb-4">Need Personal Assistance?</h3>
             <p className="text-navy-700 mb-6">
               Our expert team is here to help you navigate your real estate journey with personalized service and local expertise.
