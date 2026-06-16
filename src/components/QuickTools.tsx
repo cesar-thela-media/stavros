@@ -14,8 +14,8 @@ const quickTools = [
     textColor: "text-champagne-600"
   },
   {
-    title: "Get a Better Mortgage Rate",
-    description: "Access exclusive rates ~0.50% lower than the national average in Texas — no credit check, takes 30 seconds",
+    title: "Get Conventional Rates ~0.50% lower than the national average in Texas*",
+    description: "No credit check · Free rate check · Takes 30 seconds",
     url: "https://partners.ralo.com/spero-stavros",
     buttonText: "Get Personalized Rate",
     icon: (

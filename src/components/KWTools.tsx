@@ -33,8 +33,8 @@ const kwTools = [
     color: " text-forest-600"
   },
   {
-    title: "Ralo Mortgage Partner",
-    description: "Get rates ~0.50% lower than the national average — free rate check in 30 seconds, no credit check required",
+    title: "Get Conventional Rates ~0.50% Lower",
+    description: "No credit check · Free rate check · Takes 30 seconds",
     url: "https://partners.ralo.com/spero-stavros",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
