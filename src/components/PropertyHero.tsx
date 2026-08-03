@@ -62,7 +62,7 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
           )}
           <div className="mt-8">
             <p className="text-lg text-white">
-              <span className="font-semibold text-gold-400">{property.builder === 'Resale' ? 'Year Built:' : 'Target Completion:'}</span> {property.completionDate}
+              <span className="font-semibold text-gold-400">{property.completionLabel ?? (property.builder === 'Resale' ? 'Year Built:' : 'Target Completion:')}</span> {property.completionDate}
             </p>
           </div>
         </div>

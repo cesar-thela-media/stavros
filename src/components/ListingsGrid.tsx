@@ -304,7 +304,7 @@ export default function ListingsGrid({ properties }: ListingsGridProps) {
                   <div className="space-y-2 text-sm">
                     <p>
                       <span className="font-medium text-gold-700">
-                        {property.builder === 'Resale' ? 'Year Built:' : 'Completion:'}
+                        {property.completionLabel ?? (property.builder === 'Resale' ? 'Year Built:' : 'Completion:')}
                       </span>{' '}
                       <span className="text-primary-700">{property.completionDate}</span>
                     </p>

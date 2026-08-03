@@ -41,7 +41,7 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
             )}
             <li><span className="font-medium text-gold-700">Features:</span> {property.features.join(', ')}</li>
             <li><span className="font-medium text-gold-700">Status:</span> {property.status}</li>
-            <li><span className="font-medium text-gold-700">{property.builder === 'Resale' ? 'Year Built:' : 'Completion:'}</span> {property.completionDate}</li>
+            <li><span className="font-medium text-gold-700">{property.completionLabel ?? (property.builder === 'Resale' ? 'Year Built:' : 'Completion:')}</span> {property.completionDate}</li>
           </ul>
         </div>
       </div>

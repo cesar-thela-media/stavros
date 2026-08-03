@@ -123,7 +123,7 @@ export default function SimilarListings({ currentProperty, allProperties }: Simi
               
               <div className="flex items-center justify-between">
                 <div className="text-sm">
-                  <span className="font-medium text-gold-700">Completion:</span> 
+                  <span className="font-medium text-gold-700">{property.completionLabel ?? 'Completion:'}</span>
                   <span className="text-primary-700 ml-1">{property.completionDate}</span>
                 </div>
                 
