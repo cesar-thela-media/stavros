@@ -74,3 +74,4 @@ The site uses a custom color palette focused on luxury real estate:
 ## License
 
 Private project for Stavros Realty.
+Updated August 4, 2024.
