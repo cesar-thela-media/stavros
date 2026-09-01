@@ -148,7 +148,7 @@ export default function QuickTools() {
                 Need Expert Guidance?
               </h3>
               <p className="text-charcoal-700 mb-8 text-lg leading-relaxed">
-                While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. With over 26+ years of proven experience, Spero and his team will give you the personal advice online tools can't. Call today to discuss your real estate goals with confidence and comfort throughout the process.
+                While our tools provide instant estimates, nothing replaces personalized advice from a seasoned professional. With over 28+ years of proven experience, Spero and his team will give you the personal advice online tools can't. Call today to discuss your real estate goals with confidence and comfort throughout the process.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a 

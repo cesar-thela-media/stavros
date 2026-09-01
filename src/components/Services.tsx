@@ -46,7 +46,7 @@ export default function Services() {
             Spero's and The Stavros Realty Team's Expertise
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal-600">
-            From first-time buyers to luxury estates and custom home construction - comprehensive services backed by 26+ years of award-winning experience.
+            From first-time buyers to luxury estates and custom home construction - comprehensive services backed by 28+ years of award-winning experience.
           </p>
         </div>
 

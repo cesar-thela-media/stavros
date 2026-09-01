@@ -99,7 +99,7 @@ export default function TeamPage() {
                   Meet Spero Stavros
                 </h2>
                 <p className="mt-6 text-lg text-primary-600">
-                  <strong>Experience • Integrity • Excellence</strong> - Spero brings over 26 years of award-winning experience in real estate, representing luxury, custom home buyers, sellers, and builders at any price point.
+                  <strong>Experience • Integrity • Excellence</strong> - Spero brings over 28+ years of award-winning experience in real estate, representing luxury, custom home buyers, sellers, and builders at any price point.
                 </p>
                 <p className="mt-4 text-lg text-primary-600">
                   As a top-producing Keller Williams agent, Spero combines unmatched market knowledge with his unique background as VP of Business Operations and partial owner of a mortgage company, providing invaluable insights that save clients time, stress, and money.

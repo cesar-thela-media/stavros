@@ -79,7 +79,7 @@ export default function Awards() {
               earning recognition from industry leaders and professional organizations year after year.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-charcoal-600">
-              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">26+ Years Experience</span>
+              <span className="bg-white px-4 py-2 rounded-lg shadow-sm">28+ Years Experience</span>
               <span className="bg-white px-4 py-2 rounded-lg shadow-sm">Multi-Million Dollar Producer</span>
               <span className="bg-white px-4 py-2 rounded-lg shadow-sm">Industry Leadership</span>
               <span className="bg-white px-4 py-2 rounded-lg shadow-sm">Professional Development</span>
