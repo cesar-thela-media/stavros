@@ -44,7 +44,7 @@ const properties: Property[] = [
     city: 'Horseshoe Bay',
     state: 'TX',
     zipCode: '78657',
-    price: 934900,
+    price: 919900,
     builder: 'Silverado Signature Homes',
     status: 'Available',
     completionDate: 'AUGUST 1, 2026',
@@ -58,6 +58,7 @@ const properties: Property[] = [
     description: 'New Construction Custom Home Completed 8/1/26-Now Available and Worth the Wait! Experience refined Hill Country living in the heart of Horseshoe Bay in this thoughtfully crafted single-story custom home, where timeless architecture, quality craftsmanship, and indoor-outdoor living meet in a community celebrated for lake living, golf, and resort-style amenities. The striking exterior features a full stone and stucco exterior, upgraded paver driveway, charcoal metal roof, and clean architectural lines for exceptional curb appeal. Inside, soaring ceilings, natural light, and expansive glass doors create an open, inviting atmosphere. The chef\'s kitchen showcases beautiful quartz countertops, oversized island with seating, custom cabinetry, designer finishes, high-end stainless appliances, walk-in pantry, and connection to formal and casual dining. The private owner\'s suite is a true retreat featuring a spa-inspired bath with soaking tub, oversized walk-in shower, dual vanities, and two expansive his-and-her walk-in closets. Three additional bedrooms and a dedicated study provide flexibility for guests, remote work, or hobbies. The impressive laundry room offers abundant cabinetry, storage, and space for an additional refrigerator. A custom mud area off the main garage features beautiful built-in cabinetry for organization and convenience. Designer lighting enhances the home\'s sophisticated style, while spray foam insulation in the attic provides added energy efficiency and comfort. Outdoor living shines with an expansive covered patio, upgraded outdoor kitchen featuring Coyote brand appliances, and a large backyard with room for a future pool. An oversized two-car garage plus dedicated golf cart bay offer the perfect setup for enjoying the Horseshoe Bay lifestyle. Complete with a Builder 1-2-10 Warranty, this move-in-ready home offers upgraded finishes and peace of mind. Ideally positioned minutes from championship golf, Lake LBJ, and Horseshoe Bay Resort amenities, this home offers nearby dining, marina activities, recreation, and relaxed Hill Country living.',
     image: '/listings/112-winchester/hero.jpg',
     featured: true,
+    imageRibbonText: 'Price improvement',
     gallery: [
       "/listings/112-winchester/hero.jpg",
       "/listings/112-winchester/gallery/02-entry.jpg",

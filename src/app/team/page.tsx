@@ -116,7 +116,7 @@ export default function TeamPage() {
                     Schedule a Consultation
                   </a>
                   <a
-                    href="https://stavrosrealtyteam.kw.com/agent"
+                    href="https://bit.ly/SperoBio"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary shrink-0 whitespace-nowrap px-6 text-center"
