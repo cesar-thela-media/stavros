@@ -40,7 +40,7 @@ export default function FeaturedProperties() {
                   </span>
                 </div>
                 <p className="text-charcoal-600 mb-4">{property.city}, {property.state}</p>
-                {property.status === "Sold" ? (
+                {property.status === "Sold" && !property.gallery?.length ? (
                   <div className="text-sm text-charcoal-500 mb-4">
                     <span className="text-champagne-600 font-semibold">Represented Builder</span>
                   </div>
@@ -55,7 +55,7 @@ export default function FeaturedProperties() {
                     <span className="text-champagne-600 font-semibold">Building Lot - {property.lotSize || "Ready for Construction"}</span>
                   </div>
                 )}
-                {property.status !== "Sold" && (
+                {(property.status !== "Sold" || Boolean(property.gallery?.length)) && (
                   <Link href={`/listings/${property.slug}`} className="mt-4 w-full btn-secondary block text-center">
                     View Details
                   </Link>
