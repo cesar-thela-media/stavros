@@ -193,7 +193,7 @@ const properties: Property[] = [
     city: 'Austin',
     state: 'TX',
     zipCode: '78748',
-    price: 859900,
+    price: 845900,
     builder: 'Resale',
     status: 'Available',
     completionDate: '1984',
@@ -207,6 +207,7 @@ const properties: Property[] = [
     description: "Brodie-area single-level home with a private ADU / Apartment @ 4,670 total square feet of versatile living space comprised of a four-bedroom, two-bathroom main residence and a 1BD/1BA w living space ADU Apartment. Inside, the refined interior showcases high ceilings, crown molding, natural woodwork, and built-in bookcases, while a Heatilator wood-burning fireplace serves as a central feature. Multiple living and dining areas offer spatial flexibility for hosting or quiet relaxation. The residence incorporates several energy-conscious features, including solar panels with Tesla backup batteries, a whole-house attic fan, and Anderson composite low-E dual-pane windows throughout the main portion of the home. Gas is plumbed and available for the kitchen appliances. The self-contained ADU / Apartment is configured with its own entrance, private patio, living area, kitchenette, and private bathroom, presenting options for multi-generational living, guest accommodations, or rental potential, and is also equipped with dual-pane, composite, low-E windows. Positioned on a landscaped corner flag lot of 0.44 acres, the outdoor space features a fully fenced, tranquil backyard shaded by mature trees exceeding 40 feet in height. Additional exterior appointments include gutters with leaf guards, an automated sprinkler system, a two-car garage, and parking capacity for up to seven vehicles. Residents also receive association access to the Shady Hollow community amenities, including a clubhouse, swimming pools, sport courts, playgrounds, a dog park, picnic areas, and hike-and-bike trails. Please note some virtual/staging photos are included in this listing to show you the many options of this home.",
     image: '/listings/11006-brodie/gallery/11006-brodie-01.jpg',
     featured: true,
+    imageRibbonText: 'Price improvement',
     gallery: [
       "/listings/11006-brodie/gallery/11006-brodie-01.jpg",
       "/listings/11006-brodie/gallery/11006-brodie-02.jpg",
@@ -275,7 +276,7 @@ const properties: Property[] = [
     city: 'Kyle',
     state: 'TX',
     zipCode: '78640',
-    price: 324900,
+    price: 309900,
     builder: 'Resale',
     status: 'Available',
     completionDate: null,
@@ -289,6 +290,7 @@ const properties: Property[] = [
     description: "The 370-square-foot bonus room upstairs is the reason people will remember this house. Everything else is the reason they will want buy it. Just imagine a room so large you never have to choose between movie night, game night, a home gym, or anything else you can think of making it. Upstairs that room runs roughly 18.5 by 20 feet w/ vaulted ceiling, a ceiling fan, and set apart from the main living area downstairs. The rest of the home earns its keep. 2,340 square feet on a cul-de-sac. With two living areas and two dining areas, one formal, one casual, so there is a place for everything. Beautiful flooring. The kitchen sits at the center of it: gas range, breakfast bar with seating, a large pantry and a walk in extra storage area, generous counter space w/ a dedicated desk area, and a bay-windowed breakfast area. It opens directly to the living room, where a gas log wood-burning fireplace anchors the space. The primary suite includes a soaking tub, separate shower, double vanity, and a walk-in closet with built-in shelving. Two full bathrooms up, a half bath down. Outside, the back yard is fully fenced in wood privacy fencing. Attached two-car garage with room for six total parking spaces. The cul-de-sac position allows room for bikes or games in the street. Before you make up your mind, here is what you should know: foundation repair has been completed in 2025 by Ram Jack. Piers installed, structure leveled and locked, documentation available on request with a full lifetime transferable warranty. That work is done, paid for, and behind you. As always, some restrictions apply. Roof & AC Replaced in 2025. Located in the great Hays Consolidated Independent School District. Also check out the amazing community recreation/pool area nearby. Enjoy quick access to Ascension Seton Hays Hospital, shopping, dining, and parks, with easy access to I-35. Also on the same power grid as the hospital, so there's less fear of losing power. This was set up to be Airbnb so all furnishings and everything is negotiable. Note: Some photos and lawn areas in select photographs have been digitally enhanced to show what it can look like in season. This is one you really need to see.",
     image: '/listings/145-paddington/gallery/145-paddington-01.jpg',
     featured: true,
+    imageRibbonText: 'Price improvement',
     gallery: [
       "/listings/145-paddington/gallery/145-paddington-01.jpg",
       "/listings/145-paddington/gallery/145-paddington-02.jpg",
@@ -451,7 +453,7 @@ const properties: Property[] = [
     zipCode: '78640',
     price: 339950,
     builder: 'Resale',
-    status: 'Available',
+    status: 'Pending Sale',
     completionDate: '2002',
     classification: 'home',
     squareFootage: 2470,
@@ -462,6 +464,7 @@ const properties: Property[] = [
     description: 'Move-in ready with fresh updates throughout, steps from Plum Creek\'s parks & recreation center, a walk to the elementary school, and a short distance to the middle and high schools. Inside, this home offers a main level primary bedroom w/ a soaking whirlpool tub, separate shower, double vanity, and walk-in closet. Recent updates include fresh interior paint, new carpet, a new kitchen backsplash, new granite countertops, and an HVAC heating and cooling system replaced in September 2025. A pre-listing inspection was completed, with many of the identified items addressed. The kitchen features stainless steel appliances including a refrigerator, a center island, a pantry, and an eat-in dining area, with a separate formal dining space for entertaining. Plus a garage refrigerator included. This home offers three living areas, including a gas log fireplace in the main living area, a front living space, and a third living space upstairs offering flexible use as a media room, playroom, or home office. Ceiling fans, a smart thermostat, a security system, high speed internet available, & a water softener. Outside, enjoy a covered & screened porch, private backyard with vinyl & wood fencing, storage shed, and an attached two car garage with alley access & extra driveway parking. Plum Creek is a premier Kyle community with two fishing ponds, three parks w/ playgrounds, a rentable community center, a lap pool, pickleball courts, and a splash pad just down the street, along with community events held throughout the year. Kyle continues to grow as a vibrant place to live, with a wide variety of shopping, dining, and everyday conveniences nearby, giving residents easy access to popular retailers, local restaurants, and grocery options just minutes from home. The City of Kyle also hosts community events throughout the year, including downtown festivals, a farmers market, and offers additional recreation nearby including Lake Kyle, hiking and biking trails, and Plum Creek Golf Course.',
     image: '/listings/5881-fergus/gallery/5881-fergus-01.jpg',
     featured: true,
+    imageRibbonText: 'Under Contract in 1 day for Full Ask',
     gallery: [
       "/listings/5881-fergus/gallery/5881-fergus-01.jpg",
       "/listings/5881-fergus/gallery/5881-fergus-02.jpg",
@@ -553,6 +556,7 @@ const properties: Property[] = [
     description: 'Nestled on a cul-de-sac, this stunning home feels like walking through a model. The fully upgraded kitchen boasts quartz countertops, an integrated sink, premium faucet and fixtures, a striking counter-to-ceiling backsplash behind the luxury stainless vent hood, top tier stainless appliances with a gas cooktop and pantry. The main level showcases vinyl wood plank flooring throughout, accented by crown molding, recessed lighting, and whole home custom paint. The home office/bonus room includes beautiful functional built in\'s. The large primary retreat is a true sanctuary, with an en-suite bath offering a freestanding soaking tub, designer tile flooring, a frameless glass shower enclosure, shiplap vanity wall, custom mirrors & fixtures, plus a barn door. Upstairs, a second living/bonus area adds flexibility for living/relaxation options. The garage, with epoxy flooring and insulated steel doors, offers bonus space beyond just parking for exercise, hobbies, and ample storage. Outside, the large 0.248-acre lot offers a private backyard with no rear neighbors, pergola, rear patio & deck plus a playscape and garden area ensuring outdoor enjoyment for parents and kids alike. Maybe add a future pool? Located in family-friendly Springbrook Glen, near parks, trails, and Lake Pflugerville, plus top Pflugerville ISD schools and nearby shopping (Costco 7Min and 15Min to the Domain) Perfect for suburban comfort and convenience. Easy access to SH-45. A new roof (2021) dual stage AC added (2020) plus the water heater replaced in 2023. Your move-in ready dream home awaits!',
     image: '/listings/1405-grafton/hero.jpeg',
     featured: true,
+    imageRibbonText: 'Under Contract in 14 days',
     gallery: [
       "/listings/1405-grafton/gallery/1-1405-Grafton-Ln---001.jpeg",
       "/listings/1405-grafton/gallery/4-1405-Grafton-Ln---023.jpeg",

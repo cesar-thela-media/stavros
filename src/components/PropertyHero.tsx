@@ -16,8 +16,8 @@ export default function PropertyHero({ property, heroImage }: PropertyHeroProps)
           src={heroImage}
           alt={`${property.address} in ${property.city}`}
         />
-        <PropertyImageBadges ribbonText={property.imageRibbonText} />
       </div>
+      <PropertyImageBadges ribbonText={property.imageRibbonText} variant="banner" />
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <div className="inline-block bg-gold-500 text-navy-900 px-4 py-2 rounded-full text-sm font-semibold mb-4">
